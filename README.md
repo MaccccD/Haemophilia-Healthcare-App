@@ -2,6 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -44,6 +45,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+To learn more about this app and its design decisions, please check out [Figma Design Phase Document] (https://www.figma.com/design/5Mdl9hc1sYAuBJE0eKlUwS/UI-UX-Design-Phase-Document-_HealthcareApp_DumiMofolo?node-id=1-2&t=EXUzmz70CsCB0svL-1)
 
 ### Code Splitting
 
