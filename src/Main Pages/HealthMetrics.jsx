@@ -3,7 +3,7 @@ import React from 'react'
 function HealthMetrics() {
   return (
     <div>
-      
+      <h1>Heyy, All things about your health!!</h1>
     </div>
   )
 }
