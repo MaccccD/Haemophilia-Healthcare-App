@@ -31,7 +31,8 @@ function AccountSetUpPage2() {
   return (
     //Second step of the Haemophilia Helathcare App Accountt creation Part 2:
     <div>
-      <h1>Heyyyy, Welcome to the Heamophilia Healthcare App: Creating  Account Part 2</h1>
+      <h1>Heyyyy, Welcome to the Heamophilia Healthcare App</h1>
+      <p>Please continue creating your account down below:</p>
        <form onSubmit={accountSetUpP2}>
         <input type='text' placeholder='Enter House Address' onChange={(e)=>setHouseAddress(e.target.value)} required/>
         <input type='text' placeholder='Enter City' onChange={(e)=> setCity(e.target.value)} required/>

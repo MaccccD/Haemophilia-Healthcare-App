@@ -51,11 +51,11 @@ function AuthContextProvider({children}) {
   return true;
   }
 
+  
   return (
-    <userAuthenticate.Provider value={{user, userEmailAddress, userHouseAddress, password, validatePassword, personalAddress, personalDetails}}>
+    <userAuthenticate.Provider value={{user, userEmailAddress, userHouseAddress, password, validatePassword,authenticate, personalAddress, personalDetails}}>
      {children}
     </userAuthenticate.Provider>
   )
-
 }
 export default AuthContextProvider;

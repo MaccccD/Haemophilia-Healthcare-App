@@ -35,7 +35,7 @@ function HealthConditionSetUp() {
   return (
     // This is the 3rd part of the app where patients will get to choose a health condition they are direclty affected by:
     <div>
-     <h1>Health Issue Details</h1>
+     <h1>Health Issue Details:</h1>
      <p>Please tick only the health issue(s) applicable to you:</p>
      <form onSubmit={HandleHealthConditions}>
       <label>

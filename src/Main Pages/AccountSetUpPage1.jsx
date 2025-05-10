@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { userAuthenticate } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
+
 function AccountSetUpPage1() {
    //context usage here :
    const {personalDetails} = useContext(userAuthenticate);
@@ -34,12 +35,13 @@ function AccountSetUpPage1() {
   return (
      //first step of the Haemophilia Healthcare app  Account Creation Part 1:
      <div>
-     <h1>Heyyyy, Welcome to the Heamophilia Healthcare App: Creating Acount Part 1</h1>
+     <h1>Heyyyy, Welcome to the Heamophilia Healthcare App</h1>
+     <p>Please Create your account down below:</p>
       <form onSubmit={accountSetUp}>
        <input type='text' placeholder='Enter Full Name & Surname' onChange={(e)=>setFullNames(e.target.value)} required/>
        <input type='text' placeholder='Enter ID Number' onChange={(e)=> setIdNumber(e.target.value)} required/>
        <input type='password' placeholder='Enter Password' onChange={(e)=> setPassword(e.target.value)} required/>
-       <input type='password' placeholder='Re-neter Password' onChange={(e)=> setValidatePassword(e.target.value)} required/>
+       <input type='password' placeholder='Re-enter Password' onChange={(e)=> setValidatePassword(e.target.value)} required/>
        <button style={{backgroundColor: 'green', borderRadius: 16, width: 100, height: 50}}>Next</button>
      </form>
    </div>
