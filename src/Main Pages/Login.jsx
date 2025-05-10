@@ -6,16 +6,16 @@ function Login() {
     const navigate = useNavigate();
 
     function HandleRegistration(registered){
-        if(!registered){
-            navigate("/AccountSetUpPage1")
+        if(registered){
+            navigate("/Home")
         }
         else{
-            navigate("/Home");
+            navigate("/AccountSetUpPage1");
         }
     }
   return (
     <div>
-      <h1>Your login page babyyy</h1>
+      <h1> This is your login page , rightr after you've created your account</h1>
     </div>
   )
 }
