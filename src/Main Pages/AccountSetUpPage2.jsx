@@ -13,20 +13,34 @@ function AccountSetUpPage2() {
   const [postalCode, setPostalCode] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
 
+  //Handle Account creation functionality part 2 . I separated the logic for easier code readability:
   function accountSetUpP2(event){
    event.preventDefault();
-   if(houseAddress && city && postalCode && emailAddress.trim()){
-    if(personalAddress(houseAddress, city, postalCode, emailAddress)){
-      navigate("/HealthConditionSetUp");
-    }
-    else{
-      alert("Incorrect Address credentials!! Please ensure that evry field is filled in correctly");
+   if(!houseAddress || !city || !postalCode || !emailAddress.trim()){
+      alert("Please fill out all the fields correctly!");
       setHouseAddress("");
       setCity("");
       setPostalCode("");
       setEmailAddress("");
-    }
+      return
    }
+   if(personalAddress(houseAddress, city, postalCode, emailAddress)){
+       navigate("/HealthConditionSetUp");
+       return;
+   }
+
+  //  if(houseAddress && city && postalCode && emailAddress.trim()){
+  //   if(personalAddress(houseAddress, city, postalCode, emailAddress)){
+  //     navigate("/HealthConditionSetUp");
+  //   }
+  //   else{
+  //     alert("Incorrect Address credentials!! Please ensure that evry field is filled in correctly");
+  //     setHouseAddress("");
+  //     setCity("");
+  //     setPostalCode("");
+  //     setEmailAddress("");
+  //   }
+  //  }
   }
   return (
     //Second step of the Haemophilia Helathcare App Accountt creation Part 2:

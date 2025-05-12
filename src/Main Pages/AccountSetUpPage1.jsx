@@ -14,21 +14,29 @@ function AccountSetUpPage1() {
    const [password, setPassword] = useState("");
    const [validatePassword, setValidatePassword] = useState("");
 
-   //Handle Account creation functionality :
+   //Handle Account creation functionality . I separated the logic for easier code readability:
    function accountSetUp(event){
-    event.preventDefault();
-    if(fullNames && IdNumber && password && validatePassword.trim() && password === validatePassword){
-      if(personalDetails(fullNames, IdNumber, password, validatePassword)){
-       navigate("/AccountSetUpPage2");
-      }
-      else{
-        alert("Passwords do not match! Please ensure every field had been correctly filled in.");
-        setFullNames("");
-        setIdNumber("");
-        setPassword("");
-        setValidatePassword("");
-      }
-    }
+    event.preventDefault();//by putting this here, i'm aware that it will cause the page to not reload and thus the fields will not be cleared out if the passwords are not matching.
+    //checking if all the fields are correctly filled in
+     if (!fullNames || !IdNumber || !password || !validatePassword.trim()) {
+    alert("Please fill in all fields.");
+    return;
+  }
+   //validating with the context im using :
+  if (personalDetails(fullNames, IdNumber, password, validatePassword)) {
+    navigate("/AccountSetUpPage2");
+  }
+//ensuring that if passwords do not match , players get the correct feedback
+  if (password !== validatePassword) {
+    alert("Passwords do not match! Please ensure every field is correctly filled in.");
+    console.log("Passwords don't match!!!");
+    setFullNames("");
+    setIdNumber("");
+    setPassword("");
+    setValidatePassword("");
+    return;
+  }
+ 
    }
 
    
@@ -40,7 +48,7 @@ function AccountSetUpPage1() {
      <p className='content'>Please Create your account down below:</p>
       <form onSubmit={accountSetUp}>
        <input type='text' placeholder='Enter Full Name & Surname' onChange={(e)=>setFullNames(e.target.value)} required className='setUp'/>
-       <input type='text' placeholder='Enter ID Number' onChange={(e)=> setIdNumber(e.target.value)} required className='setUp'/>
+       <input type='text' placeholder='Enter 13 digit ID Number' onChange={(e)=> setIdNumber(e.target.value)} required className='setUp'/>
        <input type='password' placeholder='Enter Password' onChange={(e)=> setPassword(e.target.value)} required className='setUp'/>
        <input type='password' placeholder='Re-enter Password' onChange={(e)=> setValidatePassword(e.target.value)} required className='setUp'/>
        <button className='nextBtn'>Next</button>
