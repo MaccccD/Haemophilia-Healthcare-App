@@ -59,11 +59,11 @@ function HealthConditionSetUp() {
        Anxiety
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setDepression(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=> setDepression(e.target.checked)} className='healthCondition'/>
        Depression
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setGeneric(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=> setGeneric(e.target.checked)} className='healthCondition'/>
        Generic (Other)
       </label>
       <button className='createAccountBtn'>Create Account</button>

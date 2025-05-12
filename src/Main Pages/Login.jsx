@@ -15,7 +15,7 @@ function Login() {
     }
   return (
     <div>
-      <h1> This is your login page , rightr after you've created your account</h1>
+      <h1 className='heading'> This is your login page , rightr after you've created your account</h1>
     </div>
   )
 }
