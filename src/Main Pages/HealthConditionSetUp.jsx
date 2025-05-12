@@ -35,27 +35,27 @@ function HealthConditionSetUp() {
   return (
     // This is the 3rd part of the app where patients will get to choose a health condition they are direclty affected by:
     <div>
-     <h1>Health Issue Details:</h1>
-     <p>Please tick only the health issue(s) applicable to you:</p>
+     <h1 className='heading'>Health Issue Details:</h1>
+     <p className='content'>Please tick only the health issue(s) applicable to you:</p>
      <form onSubmit={HandleHealthConditions}>
       <label>
-      <input type='checkbox' onChange={(e)=>setHaemophilia(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=>setHaemophilia(e.target.checked)} className='healthCondition' required/>
        Haemophilia
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setSugarDiabetic(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=> setSugarDiabetic(e.target.checked)} className='healthCondition'/>
        Sugar Diabetic
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setHypertension(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=> setHypertension(e.target.checked)} className='healthCondition'/>
        Hypertension
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setPTSD(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=> setPTSD(e.target.checked)} className='healthCondition'/>
        Post Traumatic Stress Disorder
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setAnxiety(e.target.checked)}/>
+      <input type='checkbox' onChange={(e)=> setAnxiety(e.target.checked)} className='healthCondiition'/>
        Anxiety
       </label>
       <label>
@@ -66,7 +66,7 @@ function HealthConditionSetUp() {
       <input type='checkbox' onChange={(e)=> setGeneric(e.target.checked)}/>
        Generic (Other)
       </label>
-      <button style={{backgroundColor: 'green', borderRadius: 16, width: 100, height: 50}}>Create Account</button>
+      <button className='createAccountBtn'>Create Account</button>
      </form>
     </div>
   )

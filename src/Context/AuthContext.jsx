@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const userAuthenticate = createContext();
 
-
 function AuthContextProvider({children}) {
  //the states thet will handle the account creation details:
   const [user, setUser] = useState("");
