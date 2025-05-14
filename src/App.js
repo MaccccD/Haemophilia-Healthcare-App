@@ -12,6 +12,7 @@ import { useContext } from 'react';
 import { userAuthenticate } from './Context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
+import NavBar from "./Main Components/NavBar";
 
 function ProtectedRoute({children}){
   const {authenticate} = useContext(userAuthenticate);
@@ -28,7 +29,7 @@ function App() {
     <BrowserRouter>
     <AuthContextProvider>
        <Routes>
-        <Route path="/" element = {<ProtectedRoute><Home/></ProtectedRoute>}/>
+        <Route path="/" element = {<ProtectedRoute><Home/><NavBar/></ProtectedRoute>}/>
         <Route path="/HealthMetrics" element = {<ProtectedRoute><HealthMetrics/></ProtectedRoute>}/>
         <Route path="/Notifications" element = {<ProtectedRoute><Notifications/></ProtectedRoute>}/>
         <Route path="/Settings" element = {<ProtectedRoute><Settings/></ProtectedRoute>}/>

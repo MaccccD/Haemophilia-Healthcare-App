@@ -15,8 +15,8 @@ function AccountSetUpPage2() {
 
   //Handle Account creation functionality part 2 . I separated the logic for easier code readability:
   function accountSetUpP2(event){
-   event.preventDefault();
-   if(!houseAddress || !city || !postalCode || !emailAddress.trim()){
+     event.preventDefault();
+     if(!houseAddress || !city || !postalCode || !emailAddress.trim()){
       alert("Please fill out all the fields correctly!");
       setHouseAddress("");
       setCity("");
