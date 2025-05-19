@@ -11,12 +11,14 @@ function AuthContextProvider({children}) {
   const [validatePassword, setValidationPassword] = useState("");
   const [authenticate, SetAuthenticate] = useState(()=>{
    const authToken =  localStorage.getItem("isAuthenticated") 
-   return authToken === "false"; // stored this as a string bc the item that is got is also rendered as a string 
+   return authToken === "true"; // stored this as a string bc the item that is got is also rendered as a string 
+   //true means the iser is authenticated
+   
   }); 
   
   useEffect(()=>{ // so here im setting the user's authentication status and saving it in the local storage.
-    localStorage.setItem("isAuthenticated", authenticate); // updates the token accordingly
-    console.log(authenticate);
+    localStorage.setItem("isAuthenticated", authenticate.toString()); // updates the token accordingly
+     console.log(authenticate);
   }, [authenticate]); // runs eveyrtime the authicate status changes or updates.
 
   function personalDetails(fullNames, IdNumber, createPassword, validatePassword){
