@@ -11,7 +11,7 @@ function AuthContextProvider({children}) {
   const [validatePassword, setValidationPassword] = useState("");
   const [authenticate, SetAuthenticate] = useState(()=>{
    const authToken =  localStorage.getItem("isAuthenticated") 
-   return authToken === "true"; // stored this as a string bc the item that is got is also rendered as a string 
+   return authToken === "false"; // stored this as a string bc the item that is got is also rendered as a string 
   }); 
   
   useEffect(()=>{ // so here im setting the user's authentication status and saving it in the local storage.

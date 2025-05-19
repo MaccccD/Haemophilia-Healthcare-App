@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Login() {
 
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Login() {
     }
   return (
     <div>
-      <h1 className='heading'> This is your login page , rightr after you've created your account</h1>
+      <h1 className='heading'> This is your login page , right after you've created your account</h1>
     </div>
   )
 }
