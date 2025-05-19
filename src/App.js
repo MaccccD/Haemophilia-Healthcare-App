@@ -31,9 +31,9 @@ function App() {
     <AuthContextProvider>
        <Routes>
         <Route path="/" element = {<ProtectedRoute><Home/><NavBar/></ProtectedRoute>}/>
-        <Route path="/HealthMetrics" element = {<ProtectedRoute><HealthMetrics/></ProtectedRoute>}/>
-        <Route path="/Notifications" element = {<ProtectedRoute><Notifications/></ProtectedRoute>}/>
-        <Route path="/Settings" element = {<ProtectedRoute><Settings/></ProtectedRoute>}/>
+        <Route path="/HealthMetrics" element = {<ProtectedRoute><HealthMetrics/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Notifications" element = {<ProtectedRoute><Notifications/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Settings" element = {<ProtectedRoute><Settings/><NavBar/></ProtectedRoute>}/>
         <Route path="/AccountSetUpPage1" element = {<AccountSetUpPage1/>}/>
         <Route path="/AccountSetUpPage2" element = {<AccountSetUpPage2/>}/>
         <Route path="/HealthConditionSetUp" element = {<HealthConditionSetUp/>}/>
