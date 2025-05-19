@@ -55,7 +55,7 @@ function HealthConditionSetUp() {
        Post Traumatic Stress Disorder
       </label>
       <label>
-      <input type='checkbox' onChange={(e)=> setAnxiety(e.target.checked)} className='healthCondiition'/>
+      <input type='checkbox' onChange={(e)=> setAnxiety(e.target.checked)} className='healthCondition'/>
        Anxiety
       </label>
       <label>
