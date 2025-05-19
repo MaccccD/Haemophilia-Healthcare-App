@@ -7,6 +7,7 @@ import Settings from "./Main Pages/Settings";
 import AccountSetUpPage1 from "./Main Pages/AccountSetUpPage1";
 import AccountSetUpPage2 from "./Main Pages/AccountSetUpPage2";
 import HealthConditionSetUp from "./Main Pages/HealthConditionSetUp";
+import Login from "./Main Pages/Login";
 import AuthContextProvider from "./Context/AuthContext";
 import { useContext } from 'react';
 import { userAuthenticate } from './Context/AuthContext';
@@ -36,6 +37,7 @@ function App() {
         <Route path="/AccountSetUpPage1" element = {<AccountSetUpPage1/>}/>
         <Route path="/AccountSetUpPage2" element = {<AccountSetUpPage2/>}/>
         <Route path="/HealthConditionSetUp" element = {<HealthConditionSetUp/>}/>
+        <Route path="/Login" element = {<Login/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </AuthContextProvider>

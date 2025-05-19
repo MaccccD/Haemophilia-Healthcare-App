@@ -17,7 +17,7 @@ function AuthContextProvider({children}) {
   }); 
   
   useEffect(()=>{ // so here im setting the user's authentication status and saving it in the local storage.
-    localStorage.setItem("isAuthenticated", authenticate.toString()); // updates the token accordingly
+    localStorage.setItem("isAuthenticated", authenticate.toString()); //converting the boolean value (true or false)into its string equivalent ("true" or "false")
      console.log(authenticate);
   }, [authenticate]); // runs eveyrtime the authicate status changes or updates.
 
