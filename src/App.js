@@ -7,6 +7,11 @@ import Settings from "./Main Pages/Settings";
 import AccountSetUpPage1 from "./Main Pages/AccountSetUpPage1";
 import AccountSetUpPage2 from "./Main Pages/AccountSetUpPage2";
 import HealthConditionSetUp from "./Main Pages/HealthConditionSetUp";
+import BleedingData from "./Haemophilia Components/BleedingData";
+import BloodTest from "./Haemophilia Components/BloodTest";
+import ClottingLevels from "./Haemophilia Components/ClottingLevels";
+import HaemophiliaLabResults from "./Haemophilia Components/HaemophiliaLabResults";
+import JointPainTracker from "./Haemophilia Components/JointPainTracker";
 import Login from "./Main Pages/Login";
 import AuthContextProvider from "./Context/AuthContext";
 import { useContext } from 'react';
@@ -37,6 +42,11 @@ function App() {
         <Route path="/AccountSetUpPage1" element = {<AccountSetUpPage1/>}/>
         <Route path="/AccountSetUpPage2" element = {<AccountSetUpPage2/>}/>
         <Route path="/HealthConditionSetUp" element = {<HealthConditionSetUp/>}/>
+        <Route path="/BleedingData" element = {<BleedingData/>}/>
+        <Route path="/BloodTest" element = {<BloodTest/>}/>
+        <Route path="/ClottingLevels" element = {<ClottingLevels/>}/>
+        <Route path="/HaemophiliaLabResults" element = {<HaemophiliaLabResults/>}/>
+        <Route path="/JointPainTracker" element = {<JointPainTracker/>}/>
         <Route path="/Login" element = {<Login/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
