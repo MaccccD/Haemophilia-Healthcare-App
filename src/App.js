@@ -22,12 +22,15 @@ import MentalHealthResults from "./Mental Health Components/MentalHealthResults"
 import PTSD from "./Mental Health Components/PTSD";
 import Login from "./Main Pages/Login";
 import AuthContextProvider from "./Context/AuthContext";
+import Mesages from "./Main Components/Messages";
+import Appointments from "./Main Components/Appointments";
 import { useContext } from 'react';
 import { userAuthenticate } from './Context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import NavBar from "./Main Components/NavBar";
 import Logout from "./Main Pages/Logout";
+import Messages from "./Main Components/Messages";
 
 function ProtectedRoute({children}){
   const {authenticate} = useContext(userAuthenticate);
@@ -65,6 +68,8 @@ function App() {
         <Route path="/MentalHealth" element = {<MentalHealthResults/>}/>
         <Route path="/PTSD" element = {<PTSD/>}/>
         <Route path="/Login" element = {<Login/>}/>
+        <Route path="/Messages" element = {<Messages/>}/>
+        <Route path="/Appointments" element = {<Appointments/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </AuthContextProvider>
