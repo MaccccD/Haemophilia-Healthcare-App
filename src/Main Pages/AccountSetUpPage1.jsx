@@ -45,7 +45,7 @@ function AccountSetUpPage1() {
      <div>
       
      <h1 className='heading'>Heyyyy, Welcome to the Heamophilia Healthcare App</h1>
-     <p className='content'>Please Create your account down below:</p>
+     <p className='content'>Please create your account down below:</p>
       <form onSubmit={accountSetUp}>
        <input type='text' placeholder='Enter Full Name & Surname' onChange={(e)=>setFullNames(e.target.value)} required className='setUp'/>
        <input type='text' placeholder='Enter 13 digit ID Number' onChange={(e)=> setIdNumber(e.target.value)} required className='setUp'/>
