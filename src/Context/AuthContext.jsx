@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import Logout from '../Main Pages/Logout';
 
 export const userAuthenticate = createContext();
 
@@ -9,6 +10,7 @@ function AuthContextProvider({children}) {
   const [userHouseAddress, setUserHouseAdrress] = useState("");
   const [password, setPassword] = useState("");
   const [validatePassword, setValidationPassword] = useState("");
+  const [logout, setLogout] = useState(false);
   const [authenticate, SetAuthenticate] = useState(()=>{
    const authToken =  localStorage.getItem("isAuthenticated") 
    return authToken === "true"; // stored this as a string bc the item that is got is also rendered as a string 
@@ -52,9 +54,15 @@ function AuthContextProvider({children}) {
   return true;
   }
 
+  function LogOut(){
+   if(logout === true){
+    setLogout(true);
+   }
+  }
+
   
   return (
-    <userAuthenticate.Provider value={{user, userEmailAddress, userHouseAddress, password, validatePassword,authenticate, personalAddress, personalDetails}}>
+    <userAuthenticate.Provider value={{user, userEmailAddress, userHouseAddress, password, validatePassword,authenticate, personalAddress, personalDetails, LogOut}}>
      {children}
     </userAuthenticate.Provider>
   )

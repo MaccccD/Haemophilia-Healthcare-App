@@ -4,9 +4,13 @@
 }
 .heading {
   color: #EBC801;
-  font-size: 20;
+  font-size: 25;
   font-weight: bolder;
-
+}
+.subheading {
+  color: #EBC801;
+  font-size: 18;
+  font-weight: bold;
 }
 .content {
   color: #FFEBD7;
@@ -41,6 +45,24 @@
 .createAccountBtn:hover{
   background-color: #062758;
 }
+.messages {
+ background-color: #103D81;
+ color: #FFEBD7;
+ border-radius: 25px;
+ width: 190px;
+ height: 50px;
+ border: none;
+ opacity: 100;
+}
+.appointments {
+ background-color: #103D81;
+ color: #FFEBD7;
+ border-radius: 25px;
+ width: 190px;
+ height: 50px;
+ border: none;
+ opacity: 100;
+}
 label {
   color: #FFEBD7;
 }
@@ -59,4 +81,15 @@ label {
 }
 .bleedingData:hover{
   background-color: #7a1b07;
+}
+.heroImage {
+  width: 300px;
+  height: 300px;
+}
+.search {
+  color: #FFEBD7;
+  width: 195px;
+  height: 50px;
+  border-radius: 10px;
+  gap: 20;
 }

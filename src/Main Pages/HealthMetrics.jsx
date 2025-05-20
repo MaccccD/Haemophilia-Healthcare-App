@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function HealthMetrics() {
     const navigate = useNavigate();
     const[selectedConditions,setSelectedConditions] = useState([]);
+    const [search, setSearch] = useState("");
 
     // setting up the ease retrieval of the selcted conditions when this components mounts so the slected health cinditions are obtained
     useEffect(()=>{
@@ -25,29 +26,29 @@ function HealthMetrics() {
     ],
     
      "Sugar Diabetic": [
-      {name: "Diabetes Levels", route: "/Diabetes Components/Diabetes"},
-      {name: "Diabetes Lab Results", route: "/Diabetes Components/DiabetesResults"}  
+      {name: "Diabetes Levels", route: "/Diabetes"},
+      {name: "Diabetes Lab Results", route: "/DiabetesResults"}  
     ],
     
     "Hypertension" : [
-      {name: "High Blood pressure levels", route: "/High Blood Pressure Components/HighBloodPressure"},
-      {name: "BP Results", route: "/High Blood Pressure Components/BPResults"}
+      {name: "High Blood pressure levels", route: "/HighBloodPressure"},
+      {name: "BP Results", route: "/BPResults"}
     ],
   
      "PTSD": [
-      {name: "PTSD", route: "/Mental Health Components/PTSD"}
+      {name: "PTSD", route: "/PTSD"}
     ],
 
      "Anxiety": [
-      {name: "Anxiety", route: "/Mental Health Components/Anxiety"}
+      {name: "Anxiety", route: "/Anxiety"}
     ],
   
      "Depression": [
-      {name: "Depression", route: "/Mental Health Components/Depression"}
+      {name: "Depression", route: "/Depression"}
     ],
 
      "Generic'Other'": [
-      {name: "Mental Health Results", route: "/Mental Health Components/MentalHealthResults"}
+      {name: "Mental Health Results", route: "/MentalHealthResults"}
     ]
   };
   
@@ -66,9 +67,11 @@ function HealthMetrics() {
     );
   };
 
+ 
   return (
     <div>
       <h1 className='heading'>Heyy, All things about your health!!</h1>
+       <input type='search' placeholder='Search...' className='search' onChange={(e)=>  setSearch(e.target.value)}/>
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (
         renderButtons()
       ) : (
