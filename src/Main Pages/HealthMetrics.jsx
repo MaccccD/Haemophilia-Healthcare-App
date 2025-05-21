@@ -23,7 +23,7 @@ function HealthMetrics() {
    const healthConditionPages = {
      "Haemophilia": [
       { name: "Bleeding Data", route: "/BleedingData"},
-      { name: "Blood Tests", route: "/BloodTests" },
+      { name: "Blood Tests", route: "/BloodTest" },
       { name: "Clotting Levels", route: "/ClottingLevels" },
       { name: "Haemophilia Lab Results", route: "/HaemophiliaLabResults" },
       { name: "Joint Pain Tracker", route: "/JointPainTracker" }
