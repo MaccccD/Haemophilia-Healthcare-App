@@ -83,7 +83,7 @@ function HealthMetrics() {
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (
         renderButtons()
       ) : (
-        <p>No health metrics available for your current conditions.</p>
+        <p className='content'>No health metrics available for your current conditions.</p>
       )}
     </div>
   )
