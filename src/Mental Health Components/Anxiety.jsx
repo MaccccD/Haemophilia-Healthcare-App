@@ -3,7 +3,7 @@ import React from 'react'
 function Anxiety() {
   return (
     <div>
-      <p className='content'>Here are your anxiety records:</p>
+      <p className='content'>Please log in your different anxiety episodes:</p>
     </div>
   )
 }
