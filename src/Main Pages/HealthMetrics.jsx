@@ -4,7 +4,11 @@ import { useNavigate } from 'react-router-dom';
 function HealthMetrics() {
     const navigate = useNavigate();
     const[selectedConditions,setSelectedConditions] = useState([]);
-    const [search, setSearch] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
+
+    function HandleSearch(e){
+    setSearchQuery(e.target.value) ; //updating the search query state variable with whatever the user is typing in the search bar
+    }
 
     // setting up the ease retrieval of the selcted conditions when this components mounts so the slected health cinditions are obtained
     useEffect(()=>{
@@ -18,7 +22,7 @@ function HealthMetrics() {
     // Config of what to show under each health conditon selected condition
    const healthConditionPages = {
      "Haemophilia": [
-      { name: "Bleeding Data", route: "/BleedingData" },
+      { name: "Bleeding Data", route: "/BleedingData"},
       { name: "Blood Tests", route: "/BloodTests" },
       { name: "Clotting Levels", route: "/ClottingLevels" },
       { name: "Haemophilia Lab Results", route: "/HaemophiliaLabResults" },
@@ -55,7 +59,11 @@ function HealthMetrics() {
   //The relevant health condition btns based on what health conditions was selcted and saved to the local storage
     const renderButtons = () => {
     return selectedConditions.flatMap(condition => // flat map here flattens the results of the state variables array into one level depth to get one flat array of btns
-      healthConditionPages[condition]?.map((page, index) => (
+       (healthConditionPages[condition] || [])
+      .filter(page => //in here "filter" ensures that the search query (so what is typed) includes the page's name (what's the actual result of the bttuons that are rendered)
+        page.name.toLowerCase().includes(searchQuery.toLowerCase()) // making whats being typed lowercase to avoid case mismatch when searching for the actual health metric
+      )
+      .map((page, index) => (
         <button
           key={`${condition}-${index}`}
           className='bleedingData'
@@ -63,15 +71,15 @@ function HealthMetrics() {
         >
           {page.name}
         </button>
-      )) || []
-    );
+      ))
+  );
   };
 
  
   return (
     <div>
       <h1 className='heading'>Heyy, All things about your health!!</h1>
-       <input type='search' placeholder='Search...' className='search' onChange={(e)=>  setSearch(e.target.value)}/>
+       <input type='search' placeholder='Search...' className='search' onChange={HandleSearch}/>
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (
         renderButtons()
       ) : (
