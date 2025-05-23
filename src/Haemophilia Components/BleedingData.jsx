@@ -12,6 +12,10 @@ function BleedingData() {
   const [notes, setNotes] = useState("");
 
   const handleSave =()=>{
+    if (!notes || !intensity || !site || !duration || !trigger || !treatment) {
+    alert("Please fill in all required fields before saving.");
+    return; // ensuring that the entr does not save unless all the fields have been filled.
+    }
     const bleedingLog = {
       bleedingCount,
       intensity,
@@ -30,6 +34,15 @@ function BleedingData() {
     localStorage.setItem("bleedingLogs", JSON.stringify(updatedLogs));
 
     alert("Bleeding episode Logged! Yay!");
+    //clear all the field(s) after each bleeding episode entry:
+    setBleedingCount("");
+    setIntensity("");
+    setSite("");
+    setDuration("");
+    setTrigger("");
+    setTreatment("");
+    setPainLevel("");
+    setNotes("");
 
   };
 
