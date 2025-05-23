@@ -1,39 +1,78 @@
 import React from 'react';
 import { useState } from 'react';
 function BleedingData() {
+  //State variables for the different typesof bleeding data :
   const [bleedingCount, setBleedingCount] = useState(0);
+  const [intensity, setIntensity] = useState("");
+  const [site, setSite] = useState("");
+  const [duration, setDuration] = useState("");
+  const [trigger, setTrigger] = useState("");
+  const [treatment, setTreatment] = useState("");
+  const [painLevel, setPainLevel] = useState(1);
+  const [notes, setNotes] = useState("");
 
-function IncreaseBleedingCount(){
-setBleedingCount(bleedingCount + 1);
-if(bleedingCount >= 5){
-  setBleedingCount(0);
-}
-// save the count logged in by the user in the stroage because ill use it to generate results based on it:
-  localStorage.setItem("bleedingCount", JSON.stringify(bleedingCount));
-  console.log(bleedingCount);
+  const handleSave =()=>{
+    const bleedingLog = {
+      bleedingCount,
+      intensity,
+      site,
+      duration,
+      trigger,
+      treatment,
+      painLevel,
+      notes,
+      date: new Date().toLocaleDateString('en-GB'),
+    };
 
-}
+    //saving this data into the local storage bc i'm using it to genrate results:
+    const existingLogs = JSON.parse(localStorage.getItem("bleedingLogs")) || [];
+    const updatedLogs = [...existingLogs, bleedingLog];
+    localStorage.setItem("bleedingLogs", JSON.stringify(updatedLogs));
 
-function DecreaseBleedCount(){
-  setBleedingCount(bleedingCount - 1);
-  if(bleedingCount <= 0){
-    setBleedingCount(0);
-  }
-  // save the count logged in by the user in the stroage because ill use it to generate results based on it:
-  localStorage.setItem("bleedingCount", JSON.stringify(bleedingCount));
-  console.log(bleedingCount);
+    alert("Bleeding episode Logged! Yay!");
 
-
-} 
+  };
 
   return (
     <div>
-      <p className='content'>Please log on your bleeding  data episodes: below:</p>
-      
+      <h2 className='subheading'>Please log on your bleeding episodes below:</h2>
+    
       <p className='content'>1. How often have you bled today?</p>
       <p className='content'>Bleeding Count: {`${bleedingCount}`}</p>
-       <button onClick={IncreaseBleedingCount}>Increment Bleed Count</button>
-       <button onClick={DecreaseBleedCount}>Decrease Bleeding Count</button>
+       <button onClick={()=> setBleedingCount(prev => Math.min(prev + 1, 100))} className='nextBtn'>+</button>
+       <button onClick={()=> setBleedingCount(prev=> Math.max(prev -1, 0))} className='nextBtn'>-</button>
+
+
+       <p className='content'>2.  Bleeding Intensity:</p>
+       <select onChange={(e) => setIntensity(e.target.value)} value={intensity}>
+        <option value="">Select Intensity below:</option>
+        <option value= "Light">Light</option>
+        <option value= "Moderate">Moderate</option>
+        <option value="Severe">Severe</option>
+       </select>
+
+       <p className='content'>3. Bleeding Site:</p>
+       <input type='text' className='setUp' placeholder='e.g: Nose, Joint, Ears, etc.' value={site} onChange={(e)=> setSite(e.target.value)} required/>
+
+       <p className='content'>4. Bleeding Duration (minutes):</p>
+       <input type='number' min= "0" className='setUp' value={duration} onChange={(d)=> setDuration(d.target.value)} required/>
+
+       <p className='content'>5. What triggered it?:</p>
+       <input type='text' placeholder='spontaneous,physical activity etc.' className='setUp' value={trigger} onChange={(t)=> setTrigger(t.target.value)} required/>
+
+       <p className='content'>6. Treatment taken?:</p>
+       <input type='text' className='setUp' placeholder= "e.g: Factor VIII"value={treatment} onChange={(e)=>setTreatment(e.target.value)} required/>
+
+       <p className='content'>7. Pain Level (1-10):</p>
+       <input type='range' className='setUp' min="1" max= "10" value={painLevel} onChange={(e)=> setPainLevel(e.target.value)} required/>
+
+       <p className='content'>8. Additional Notes:</p>
+       <textarea value={notes}   className= "setUp" onChange={(e)=> setNotes(e.target.value)} rows= "4" required/>
+
+        <br /><br />
+
+        <button onClick={handleSave} className='nextBtn'>Save Entry</button>
+
     </div>
   )
 }
