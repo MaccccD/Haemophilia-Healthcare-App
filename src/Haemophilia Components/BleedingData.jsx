@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+
 function BleedingData() {
   //State variables for the different typesof bleeding data :
   const [bleedingCount, setBleedingCount] = useState(0);

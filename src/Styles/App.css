@@ -92,3 +92,16 @@ label {
   border-radius: 10px;
   gap: 20;
 }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+.table th {
+  background-color: #062758;
+  text-align: left;
+}

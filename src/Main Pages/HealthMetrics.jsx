@@ -10,7 +10,7 @@ function HealthMetrics() {
     setSearchQuery(e.target.value) ; //updating the search query state variable with whatever the user is typing in the search bar
     }
 
-    // setting up the ease retrieval of the selcted conditions when this components mounts so the slected health cinditions are obtained
+    // setting up the ease retrieval of the selected conditions when this components mounts so the selected health cinditions are obtained
     useEffect(()=>{
       const stored = JSON.parse(localStorage.getItem("selectedHealthConditions"));
       if(Array.isArray(stored)){
