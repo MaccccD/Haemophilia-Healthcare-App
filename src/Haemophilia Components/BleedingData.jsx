@@ -58,7 +58,7 @@ function BleedingData() {
 
 
        <p className='content'>2.  Bleeding Intensity:</p>
-       <select onChange={(e) => setIntensity(e.target.value)} value={intensity}>
+       <select className='setUp' onChange={(e) => setIntensity(e.target.value)} value={intensity}>
         <option value="">Select Intensity below:</option>
         <option value= "Light">Light</option>
         <option value= "Moderate">Moderate</option>
