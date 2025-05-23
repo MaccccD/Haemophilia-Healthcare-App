@@ -12,6 +12,12 @@
   font-size: 18;
   font-weight: bold;
 }
+.sub-heading {
+  color: #FFEBD7;
+  font-size: 24;
+  font-weight: bolder;
+  line-height: 2rem;
+}
 .content {
   color: #FFEBD7;
   font-size: 15;
@@ -42,7 +48,7 @@
    opacity: 100;
 }
 .createAccountBtn:hover{
-  background-color: #062758;
+  background-color: #103D81;
 }
 .messages {
  background-color: #103D81;
@@ -102,6 +108,6 @@ label {
   padding: 0.5rem;
 }
 .table th {
-  background-color: #062758;
+  background-color: #103D81;
   text-align: left;
 }

@@ -54,19 +54,19 @@ function App() {
         <Route path="/AccountSetUpPage1" element = {<AccountSetUpPage1/>}/>
         <Route path="/AccountSetUpPage2" element = {<AccountSetUpPage2/>}/>
         <Route path="/HealthConditionSetUp" element = {<HealthConditionSetUp/>}/>
-        <Route path="/BleedingData" element = {<BleedingData/>}/>
-        <Route path="/BloodTest" element = {<BloodTest/>}/>
-        <Route path="/ClottingLevels" element = {<ClottingLevels/>}/>
-        <Route path="/HaemophiliaLabResults" element = {<HaemophiliaLabResults/>}/>
-        <Route path="/JointPainTracker" element = {<JointPainTracker/>}/>
-        <Route path="/Diabetes" element = {<Diabetes/>}/>
-        <Route path="/DiabetesResults" element = {<DiabetesResults/>}/>
-        <Route path="/HighBloodPressure" element = {<HighBloodPressure/>}/>
-        <Route path="/BPResults" element = {<BPResults/>}/>
-        <Route path="/Anxiety" element = {<Anxiety/>}/>
-        <Route path="/Depression" element = {<Depression/>}/>
-        <Route path="/MentalHealth" element = {<MentalHealthResults/>}/>
-        <Route path="/PTSD" element = {<PTSD/>}/>
+        <Route path="/BleedingData" element = {<ProtectedRoute><BleedingData/><NavBar/></ProtectedRoute>}/>
+        <Route path="/BloodTest" element = {<ProtectedRoute><BloodTest/><NavBar/></ProtectedRoute>}/>
+        <Route path="/ClottingLevels" element = {<ProtectedRoute><ClottingLevels/><NavBar/></ProtectedRoute>}/>
+        <Route path="/HaemophiliaLabResults" element = {<ProtectedRoute><HaemophiliaLabResults/><NavBar/></ProtectedRoute>}/>
+        <Route path="/JointPainTracker" element = {<ProtectedRoute><JointPainTracker/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Diabetes" element = {<ProtectedRoute><Diabetes/><NavBar></NavBar></ProtectedRoute>}/>
+        <Route path="/DiabetesResults" element = {<ProtectedRoute><DiabetesResults/><NavBar/></ProtectedRoute>}/>
+        <Route path="/HighBloodPressure" element = {<ProtectedRoute><HighBloodPressure/><NavBar/></ProtectedRoute>}/>
+        <Route path="/BPResults" element = {<ProtectedRoute><BPResults/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Anxiety" element = {<ProtectedRoute><Anxiety/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Depression" element = {<ProtectedRoute><Depression/><NavBar/></ProtectedRoute>}/>
+        <Route path="/MentalHealth" element = {<ProtectedRoute><MentalHealthResults/><NavBar/></ProtectedRoute>}/>
+        <Route path="/PTSD" element = {<ProtectedRoute><PTSD/><NavBar/></ProtectedRoute>}/>
         <Route path="/Login" element = {<Login/>}/>
         <Route path="/Messages" element = {<Messages/>}/>
         <Route path="/Appointments" element = {<Appointments/>}/>

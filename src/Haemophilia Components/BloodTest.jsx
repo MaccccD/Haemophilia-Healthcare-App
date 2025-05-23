@@ -1,12 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
+
+
+
 function BloodTest() {
+ 
   const [tests, setTests] = useState([]);
   const [latestEntry, setLatestEntry]= useState(null);
     //so when the component mounts; it retrieves what was the stored bleed count from the bleeding data that was logged in and saved already
   useEffect(()=>{
-   const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || []);
+   const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
    console.log(storedBleedLogs);
    if(storedBleedLogs.length > 0){
     const lastEntry = storedBleedLogs[storedBleedLogs.length - 1] //getting the most stored bleed count
@@ -45,7 +49,7 @@ function BloodTest() {
     else{
       recommendedTests =[ 
        {
-        testName: "Factor VII Actitvity Test",
+        testName: "Factor VII Activity Test",
         purpose: "Key Test for Haemophilia A diagnosis."
        },
        {
@@ -68,7 +72,7 @@ function BloodTest() {
     //storing recommnded tests in the state variable
     setTests(recommendedTests);
   };
-  
+
   return (
     <div>
       <h1 className='subheading'>Here are your blood tests:</h1>
@@ -76,22 +80,22 @@ function BloodTest() {
         Based  on your bleeding log (Count: {latestEntry ?? "No Entry was retrieved"}), the following tests are recommended to take: 
       </p>
 
-      <button onClick={bloodTestsToShow}>Show Blood Tests</button>
+      <button onClick={bloodTestsToShow} className='nextBtn'>Show Blood Tests</button>
 
       {tests.length > 0 && (
         <table className='table'>
           <thead>
             <tr>
-              <th>Test Name</th>
-              <th>Purpose</th>
+              <th className='sub-heading'>Test Name</th>
+              <th className='sub-heading'>Purpose</th>
             </tr>
           </thead>
           <tbody>
             {tests.map((test, index)=>{
               return(
                 <tr key={index}>
-                  <td>{test.testName}</td>
-                  <td>{test.purpose}</td>
+                  <td className='content'>{test.testName}</td>
+                  <td className='content'>{test.purpose}</td>
                 </tr>
               )
             })}
