@@ -37,6 +37,7 @@
    height: 50px;
    border: none;
    opacity: 100;
+   cursor: pointer;
 }
 .createAccountBtn{
    background-color: #103D81;

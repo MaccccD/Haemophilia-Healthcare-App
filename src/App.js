@@ -1,4 +1,5 @@
 import "./Styles/App.css";
+import "./Styles/NavBar.css";
 import { BrowserRouter, Routes, Route, replace } from "react-router-dom";
 import Home from "./Main Pages/Home";
 import HealthMetrics from "./Main Pages/HealthMetrics";
@@ -47,7 +48,7 @@ function App() {
     <BrowserRouter>
     <AuthContextProvider>
        <Routes>
-        <Route path="/" element = {<ProtectedRoute><Home/><Logout/><NavBar/></ProtectedRoute>}/>
+        <Route path="/" element = {<ProtectedRoute><Home/><NavBar/></ProtectedRoute>}/>
         <Route path="/HealthMetrics" element = {<ProtectedRoute><HealthMetrics/><NavBar/></ProtectedRoute>}/>
         <Route path="/Notifications" element = {<ProtectedRoute><Notifications/><NavBar/></ProtectedRoute>}/>
         <Route path="/Settings" element = {<ProtectedRoute><Settings/><NavBar/></ProtectedRoute>}/>

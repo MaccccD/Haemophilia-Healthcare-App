@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userAuthenticate } from '../Context/AuthContext';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 
 function Logout() {
@@ -17,7 +18,7 @@ function Logout() {
     }
   return (
     <div>
-      <button className='nextBtn' onClick={HandleLogOut}>LogOut</button>
+     <button onClick={HandleLogOut} className='logOut'><FaSignOutAlt className='nav-icon'/>Log Out</button>
     </div>
   )
 }

@@ -83,7 +83,7 @@ function ClottingLevels() {
         .attr("x", width/2)
         .attr("y", 30)
         .attr("text-anchor", "middle")
-        .attr("font-color", "#FFFFF")
+        .attr("font-color", "#FFEBD7")
         .attr("font-size", "15px")
         .attr("font-weight", "bold")
         .text("Clotting Levels impact by Factor");
