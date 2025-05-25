@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import HeroImage from "../Images/Hero Image.png";
 import { useNavigate } from 'react-router-dom';
-
+import { MdMessage } from 'react-icons/md';
+import { MdCalendarToday } from 'react-icons/md';
 function Home() {
 //get the user's names that tehy used to create account and login to welcome them. (personal touch):
 const username = JSON.parse(localStorage.getItem("userDetails"));
@@ -17,18 +18,21 @@ function Appointments(){
   return;
 }
   return (
-    <div>
-      <h1 className='heading'>Dashboard</h1>
+    
+     <div className="home-content">
+       <h1 className='home-heading'>Dashboard</h1>
 
-      <h2 className='subheading'>Welcome {username.fullNames}</h2>
+       <h2 className='home-subheading'>Welcome {username.fullNames}</h2>
 
-      <p className='content'>Take a look at your recent messages and scheduled appointments below:</p>
+       <p className='home-text'>
+       Take a look at your recent messages and scheduled appointments below:
+       </p>
 
-      <img className='heroImage' src= {HeroImage} alt='A doctor image with a stethoscope'/>
-
-      <button className='messages' onClick={Messages}>Messages</button>
-
-      <button className='appointments' onClick={Appointments}>Appointments</button>
+       <img className='heroImage' src={HeroImage} alt='A doctor image with a stethoscope' title='heroImage' />
+       <div className="home-buttons">
+       <button onClick={Messages} className='messages'><MdMessage className='message-icon'/>Messages</button>
+        <button onClick={Appointments} className='appointments'><MdCalendarToday className='appointment-icon'/>Appointments</button>
+       </div>
     </div>
   )
 }

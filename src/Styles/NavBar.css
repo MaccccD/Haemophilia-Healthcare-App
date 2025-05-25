@@ -1,31 +1,35 @@
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 220px;
-  min-height: 100vh;
-  background-color: #380D85; 
-  color: #FFEBD7;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 30px;
-  border: black;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease; 
-  position: relative;
+   display: flex;
+   flex-direction: column;
+   position: fixed;
+   left: 0;
+   top: 0;
+   align-items: center;
+   width: 220px;
+   min-height: 92vh;
+   background-color: #380D85; 
+   color: #FFEBD7;
+   padding: 20px;
+   margin: 10px;
+   border-radius: 30px;
+   border-color: black;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s ease; 
 }
 .logo {
     font-size: 32px;
     width: 80px;
+    align-items: center;
     height: 80px;
     margin-bottom: 20px;
     border-radius: 10%;
 }
 .user-profile {
-  width: 80px;
-  height:80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+    width: 80px;
+    height:80px;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 .username {
     margin-bottom: 30px;
@@ -53,37 +57,49 @@ nav {
     gap: 10px;
     padding: 10px;
     color: #FFEBD7;
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
     transition : background-color 0.2s;
     border-radius: 10px;
     margin: 25px 0;
     position: relative;
 }
-.nav-item:hover {
-    background-color:  #380D85;
+.nav-item.active {
+    color: #EBC801;
+    font-weight: bold;
 }
 .nav-item span {
     flex-grow: 1;
     background-color: #380D85; 
 }
 .nav-icon {
+    background-color: #380D85; 
     margin-right: 10px;
     font-size: 20px;
-    background-color: #380D85; 
 }
-button {
- background-color: #380D85;
+.logOut-Container {
+    background-color: #380D85;
+}
+.logOut-icon {
+    background-color: #103D81;
+}
+.message-icon {
+   background-color: #103D81;
+   margin-right: 15px;
+}
+.appointment-icon {
+  background-color: #103D81;
+  margin-right: 15px;
 }
 .logOut  {
-    margin-top: auto;
+    margin-top: 30px;
     padding: 10px 20px;
     border: none;
     background-color: #103D81;
     border-radius: 20px;
     color: #FFEBD7;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 20px;
 }
 .logOut:hover {
     background-color: #09295a;

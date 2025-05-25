@@ -2,7 +2,7 @@ import React from 'react'
 
 function PTSD() {
   return (
-    <div>
+    <div className='ptsd-Container'>
       <p className='content'>Please log in your PTSD data: </p>
     </div>
   )

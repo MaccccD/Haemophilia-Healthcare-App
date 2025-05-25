@@ -1,0 +1,12 @@
+.settings-Container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.settings-Text {
+ color: #FFEBD7;
+ font-size: 15;
+}

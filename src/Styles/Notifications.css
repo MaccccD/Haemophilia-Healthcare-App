@@ -1,0 +1,8 @@
+.notifications-Container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}

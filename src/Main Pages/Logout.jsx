@@ -17,8 +17,8 @@ function Logout() {
      }
     }
   return (
-    <div>
-     <button onClick={HandleLogOut} className='logOut'><FaSignOutAlt className='nav-icon'/>Log Out</button>
+    <div className='logOut-Container'>
+     <button onClick={HandleLogOut} className='logOut'><FaSignOutAlt className='logOut-icon'/>Log Out</button>
     </div>
   )
 }

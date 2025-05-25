@@ -74,7 +74,7 @@ function BloodTest() {
   };
 
   return (
-    <div>
+    <div className='bloodTest-Container'>
       <h1 className='subheading'>Here are your blood tests:</h1>
       <p className='content'> 
         Based  on your bleeding log (Count: {latestEntry ?? "No Entry was retrieved"}), the following tests are recommended to take: 

@@ -2,7 +2,7 @@ import React from 'react'
 
 function DiabetesResults() {
   return (
-    <div>
+    <div className='diabetesResults-Container'>
       <p className='content'>Here are your sugar diabetes results:</p>
     </div>
   )

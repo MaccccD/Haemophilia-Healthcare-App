@@ -1,5 +1,9 @@
 import "./Styles/App.css";
 import "./Styles/NavBar.css";
+import "./Styles/Home.css";
+import "./Styles/Health.css";
+import "./Styles/Notifications.css";
+import "./Styles/Settings.css";
 import { BrowserRouter, Routes, Route, replace } from "react-router-dom";
 import Home from "./Main Pages/Home";
 import HealthMetrics from "./Main Pages/HealthMetrics";
@@ -23,7 +27,6 @@ import MentalHealthResults from "./Mental Health Components/MentalHealthResults"
 import PTSD from "./Mental Health Components/PTSD";
 import Login from "./Main Pages/Login";
 import AuthContextProvider from "./Context/AuthContext";
-import Mesages from "./Main Components/Messages";
 import Appointments from "./Main Components/Appointments";
 import { useContext } from 'react';
 import { userAuthenticate } from './Context/AuthContext';

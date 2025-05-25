@@ -162,21 +162,21 @@ function ClottingLevels() {
       }
 
   return (
-    <div>
+    <div className='clottingLevels-Container'>
        <h2 className='subheading'>Please log on your Clotting factors below:</h2><br/>
-      <p className='content'>Based on your bleeding data, it took {latestBloodClot} for your blood to clot.</p>
+      <p className='content'>Based on your bleeding data, it took {latestBloodClot} for your blood to clot.</p><br/>
       <p className='content'> Please fill in the following fields that also affect your blood clotting ability to generate a specific coagulation test:</p>
-      <label className='content'> 1. How old are you ?:</label><br />
+      <label className='content'> 1. How old are you ?:</label><br /><br />
       <input type='number' min= "0" className='setUp' value={age} onChange={(d)=> setAge(d.target.value)} required/>
       <br /><br />
-      <label className='content'>2. Please select your sexual orientiation:</label><br />
+      <label className='content'>2. Please select your sexual orientiation:</label><br /><br />
       <select value={sex} className='setUp' onChange={(s)=> setSex(s.target.value)}>
         <option value="">Select Sexual Orientation below:</option>
         <option value= "Male">Male</option>
         <option value= "Female">Female</option>
       </select>
        <br /><br />
-      <label className='content'>3. Please select a genetic condition(s) you have (if any):</label> <br/>
+      <label className='content'>3. Please select a genetic condition(s) you have (if any):</label><br/><br/>
       <select value={genetics} className='setUp' onChange={(g)=> setGenetics(g.target.value)}>
         <option value="">Select a genetic condition below:</option>
         <option value= "Fibrinogen deficiency">Fibrinogen deficiency</option>
@@ -187,7 +187,7 @@ function ClottingLevels() {
       </select>
       <br /><br />
 
-      <label className='content'>4. Please select  other Medical Condition(s) you have (if any):</label> <br />
+      <label className='content'>4. Please select  other Medical Condition(s) you have (if any):</label><br /><br />
       <select value={medicalCondition} className='setUp' onChange={(m)=> setMedicalCondition(m.target.value)}>
         <option value="">Select medical condition below:</option>
         <option value= "lung disease">Lung Disease</option>
@@ -196,13 +196,13 @@ function ClottingLevels() {
         <option value= "None">None</option>
       </select>
        <br /><br />
-      < label className='content'>5. Please specify which kind of medications you take?</label><br />
+      < label className='content'>5. Please specify which kind of medications you take?</label><br /><br />
       <input type='text' value={medications} placeholder='Medications like blood thinners, red blood cells pills etc.' className='setUp' onChange={(m)=> setMedications(m.target.value)}/>
        <br /><br />
       <label className='content'>6. Please explain your diet intake :</label><br/>
       <input value={diet} type='text' placeholder='Include foods rich in Vitamin K' className='setUp' onChange={(d)=> setDiet(d.target.value)}/>
       <br />
-      <button onClick={renderChart} className='nextBtn'> Generate Clotting Levels Chart </button>
+      <button onClick={renderChart} className='clotting-Chart-Btn'> Generate Clotting Levels Chart </button>
       <svg ref={svgRef}></svg>
     </div>
   );

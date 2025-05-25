@@ -77,7 +77,7 @@ function HealthMetrics() {
 
  
   return (
-    <div>
+    <div className='health-Container'>
       <h1 className='heading'>Heyy, All things about your health!!</h1>
        <input type='search' placeholder='Search...' className='search' onChange={HandleSearch}/>
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (

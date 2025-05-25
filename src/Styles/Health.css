@@ -1,0 +1,149 @@
+.health-Container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.bleedingData {
+   background-color: #103D81;
+   color: #FFEBD7;
+   border-radius: 25px;
+   width: 120px;
+   height: 50px;
+   border: none;
+   opacity: 100;
+}
+.bleedingData:hover{
+  background-color: #7a1b07;
+}
+.bleeding-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.bloodTest-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7  
+}
+.clottingLevels-Container {
+  display: block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7
+}
+.results-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.jointTracker-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.diabetes-Container{
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.diabetesResults-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.bloodPressure-Container{
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.bloodPressureResults-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.anxiety-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.depression-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.mentalHealthResults-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.ptsd-Container {
+  display: inline-block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7;
+}
+.bleed-Count {
+  background-color: #103D81;
+  display: block;
+  margin: 20px;
+  color: #FFEBD7;
+  border-radius: 25px;
+  width: 100px;
+  height: 50px;
+  border: none;
+  opacity: 100;
+  cursor: pointer;
+}
+.clotting-Chart-Btn{
+  background-color: #103D81;
+  display: block;
+  margin-left: 0;
+  margin-top: 40px;
+  color: #FFEBD7;
+  border-radius: 25px;
+  width: 250px;
+  height: 50px;
+  border: none;
+  opacity: 100;
+  cursor: pointer; 
+}

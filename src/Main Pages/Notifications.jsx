@@ -19,9 +19,9 @@ function Notifications() {
     })
    }
   return (
-    <div>
+    <div className='notifications-Container'>
       <h1 className='heading'>Heyy, Welcome to  your notif updates</h1>
-      <p className='content'>{getDateStamp()}</p>
+      <p className='content'> On Today's Reminders: {getDateStamp()}</p>
       <ul className='NotifContainer'>
         {notifUpdates.map((update, index)=>{
           return(

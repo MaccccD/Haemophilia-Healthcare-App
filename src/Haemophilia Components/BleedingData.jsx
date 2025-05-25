@@ -50,13 +50,13 @@ function BleedingData() {
   };
 
   return (
-    <div>
+    <div className='bleeding-Container'>
       <h2 className='subheading'>Please log on your bleeding episodes below:</h2>
     
       <p className='content'>1. How often have you bled today?</p>
       <p className='content'>Bleeding Count: {`${bleedingCount}`}</p>
-       <button onClick={()=> setBleedingCount(prev => Math.min(prev + 1, 100))} className='nextBtn'>+</button>
-       <button onClick={()=> setBleedingCount(prev=> Math.max(prev -1, 0))} className='nextBtn'>-</button>
+       <button onClick={()=> setBleedingCount(prev => Math.min(prev + 1, 100))} className='bleed-Count'>+</button>
+       <button onClick={()=> setBleedingCount(prev=> Math.max(prev -1, 0))} className='bleed-Count'>-</button>
 
        <p className='content'>2. How long does it take for your blood to clot when your bleeding ?</p>
        <select className='setUp' onChange={(b)=> setBloodClot(b.target.value)} value={bloodClot}>

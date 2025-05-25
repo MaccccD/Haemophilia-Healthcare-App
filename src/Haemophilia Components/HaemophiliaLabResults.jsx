@@ -2,7 +2,7 @@ import React from 'react'
 
 function HaemophiliaLabResults() {
   return (
-    <div>
+    <div className='results-Container'>
       <p className='content'>Here are your blood test results!</p>
     </div>
   )
