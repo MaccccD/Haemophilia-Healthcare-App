@@ -100,6 +100,7 @@ nav {
     color: #FFEBD7;
     cursor: pointer;
     font-size: 20px;
+    opacity: 90%;
 }
 .logOut:hover {
     background-color: #09295a;

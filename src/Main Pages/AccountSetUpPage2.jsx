@@ -45,15 +45,19 @@ function AccountSetUpPage2() {
   return (
     //Second step of the Haemophilia Helathcare App Accountt creation Part 2:
     <div>
-      <h1 className='heading'>Heyyyy, Welcome to the Heamophilia Healthcare App</h1>
+      <div className='wrapper'>
+       <div className='account-Container'>
+      <h1 className='heading'>Haemophilia Healthcare App</h1>
       <p className='content'>Please continue creating your account down below:</p>
        <form onSubmit={accountSetUpP2}>
-        <input type='text' placeholder='Enter House Address' onChange={(e)=>setHouseAddress(e.target.value)} className='setUp' required/>
-        <input type='text' placeholder='Enter City' onChange={(e)=> setCity(e.target.value)} className='setUp' required/>
-        <input type='text' placeholder='Enter Postal Code' onChange={(e)=> setPostalCode(e.target.value)} className='setUp' required/>
-        <input type='text' placeholder='Enter preferred email address' onChange={(e)=> setEmailAddress(e.target.value)} className='setUp' required/>
-        <button className='nextBtn'>Next</button>
+        <input type='text' placeholder='Enter House Address' onChange={(e)=>setHouseAddress(e.target.value)} className='login-Fields' required/>
+        <input type='text' placeholder='Enter City' onChange={(e)=> setCity(e.target.value)} className='login-Fields' required/>
+        <input type='text' placeholder='Enter Postal Code' onChange={(e)=> setPostalCode(e.target.value)} className='login-Fields' required/>
+        <input type='text' placeholder='Enter preferred email address' onChange={(e)=> setEmailAddress(e.target.value)} className='login-Fields' required/>
+        <button className='login-Btn'>Next</button>
       </form>
+    </div>
+    </div>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import "./Styles/Home.css";
 import "./Styles/Health.css";
 import "./Styles/Notifications.css";
 import "./Styles/Settings.css";
+import "./Styles/Authenticate.css";
 import { BrowserRouter, Routes, Route, replace } from "react-router-dom";
 import Home from "./Main Pages/Home";
 import HealthMetrics from "./Main Pages/HealthMetrics";

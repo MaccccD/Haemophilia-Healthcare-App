@@ -42,17 +42,18 @@ function AccountSetUpPage1() {
    
   return (
      //first step of the Haemophilia Healthcare app  Account Creation Part 1:
-     <div>
-      
-     <h1 className='heading'>Heyyyy, Welcome to the Heamophilia Healthcare App</h1>
+     <div className='wrapper'>
+     <div className='account-Container'>
+     <h1 className='heading'>Haemophilia Healthcare App</h1>
      <p className='content'>Please create your account down below:</p>
       <form onSubmit={accountSetUp}>
-       <input type='text' placeholder='Enter Full Name & Surname' onChange={(e)=>setFullNames(e.target.value)} required className='setUp'/>
-       <input type='text' placeholder='Enter 13 digit ID Number' onChange={(e)=> setIdNumber(e.target.value)} required className='setUp'/>
-       <input type='password' placeholder='Enter Password' onChange={(e)=> setPassword(e.target.value)} required className='setUp'/>
-       <input type='password' placeholder='Re-enter Password' onChange={(e)=> setValidatePassword(e.target.value)} required className='setUp'/>
-       <button className='nextBtn'>Next</button>
+       <input type='text' placeholder='Enter Full Name & Surname' onChange={(e)=>setFullNames(e.target.value)} required className='login-Fields'/>
+       <input type='text' placeholder='Enter 13 digit ID Number' onChange={(e)=> setIdNumber(e.target.value)} required className='login-Fields'/>
+       <input type='password' placeholder='Enter Password' onChange={(e)=> setPassword(e.target.value)} required className='login-Fields'/>
+       <input type='password' placeholder='Re-enter Password' onChange={(e)=> setValidatePassword(e.target.value)} required className='login-Fields'/>
+       <button className='login-Btn'>Next</button>
      </form>
+   </div>
    </div>
   )
 }
