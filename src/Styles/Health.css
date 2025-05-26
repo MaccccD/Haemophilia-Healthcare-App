@@ -4,19 +4,36 @@
   padding: 30px;
   margin-left: 290px;
   gap: 20px;
-  color: #FFEBD7;
+}
+button {
+  display: flex;
+  flex-wrap: wrap;
 }
 .bleedingData {
-   background-color: #103D81;
-   color: #FFEBD7;
-   border-radius: 25px;
-   width: 120px;
-   height: 50px;
-   border: none;
-   opacity: 100;
+  align-items: center;
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #FFEBD7;
+  border-radius: 25px;
+  width: 120px;
+  height: 150px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 100;
+}
+.metric-Image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  border: white;
+  border-radius: 20px;
 }
 .bleedingData:hover{
-  background-color: #7a1b07;
+  background-color:#35136F ;
 }
 .bleeding-Container {
   display: inline-block;
@@ -33,6 +50,14 @@
   margin-left: 290px;
   gap: 20px;
   color: #FFEBD7  
+}
+.medications-Container {
+  display: block;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 290px;
+  gap: 20px;
+  color: #FFEBD7
 }
 .clottingLevels-Container {
   display: block;

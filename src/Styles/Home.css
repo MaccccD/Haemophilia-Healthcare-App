@@ -42,6 +42,9 @@
  height: 50px;
  border: none;
  opacity: 90%;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
 }
 .messages:hover {
   background-color: #09295a;
@@ -50,12 +53,16 @@
  background-color: #103D81;
  margin: 5px;
  margin-top: 20px;
+ align-self: center;
  color: #FFEBD7;
  border-radius: 25px;
  width: 190px;
  height: 50px;
  border: none;
  opacity: 90%;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
 }
 .appointments:hover {
   background-color: #09295a;

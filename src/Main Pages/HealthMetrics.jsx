@@ -1,5 +1,16 @@
+import { image } from 'd3';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import BleedingIcon from "../Images/BleedingData.png";
+import BloodTestIcon from "../Images/BloodTests.png";
+import ClottingLevelsIcon from "../Images/ClottingLevels.png";
+import TestsResultsIcon from "../Images/Resultsss.png";
+import JointPainIcon from "../Images/JointPainTracker.png";
+import MedicationIcon from "../Images/Medication.png";
+import DiabetesIcon from "../Images/Diabetes.png";
+import BloodPressureIcon from "../Images/BloodPressure.png";
+import MentalHealthIcon from "../Images/MentalHealth.png";
+
 
 function HealthMetrics() {
     const navigate = useNavigate();
@@ -22,37 +33,38 @@ function HealthMetrics() {
     // Config of what to show under each health conditon selected condition
    const healthConditionPages = {
      "Haemophilia": [
-      { name: "Bleeding Data", route: "/BleedingData"},
-      { name: "Blood Tests", route: "/BloodTest" },
-      { name: "Clotting Levels", route: "/ClottingLevels" },
-      { name: "Haemophilia Lab Results", route: "/HaemophiliaLabResults" },
-      { name: "Joint Pain Tracker", route: "/JointPainTracker" }
+      { name: "Bleeding Data", route: "/BleedingData", image: BleedingIcon},
+      { name: "Blood Tests", route: "/BloodTest", image: BloodTestIcon},
+      { name: "Clotting Levels", route: "/ClottingLevels", image: ClottingLevelsIcon},
+      { name: "Haemophilia Lab Results", route: "/HaemophiliaLabResults", image: TestsResultsIcon},
+      { name: "Joint Pain Tracker", route: "/JointPainTracker", image: JointPainIcon},
+      { name: "Medications", route: "/Medications", image: MedicationIcon}
     ],
     
      "Sugar Diabetic": [
-      {name: "Diabetes Levels", route: "/Diabetes"},
-      {name: "Diabetes Lab Results", route: "/DiabetesResults"}  
+      {name: "Diabetes Levels", route: "/Diabetes", image: DiabetesIcon},
+      {name: "Diabetes Lab Results", route: "/DiabetesResults", image: TestsResultsIcon}  
     ],
     
     "Hypertension" : [
-      {name: "High Blood pressure levels", route: "/HighBloodPressure"},
-      {name: "BP Results", route: "/BPResults"}
+      {name: "High Blood pressure levels", route: "/HighBloodPressure", image: BloodPressureIcon},
+      {name: "BP Results", route: "/BPResults", image: TestsResultsIcon}
     ],
   
      "PTSD": [
-      {name: "PTSD", route: "/PTSD"}
+      {name: "PTSD", route: "/PTSD", image: MentalHealthIcon}
     ],
 
      "Anxiety": [
-      {name: "Anxiety", route: "/Anxiety"}
+      {name: "Anxiety", route: "/Anxiety", image: MentalHealthIcon}
     ],
   
      "Depression": [
-      {name: "Depression", route: "/Depression"}
+      {name: "Depression", route: "/Depression", image: MentalHealthIcon}
     ],
 
      "Generic'Other'": [
-      {name: "Mental Health Results", route: "/MentalHealthResults"}
+      {name: "Mental Health Results", route: "/MentalHealthResults", image: MentalHealthIcon}
     ]
   };
   
@@ -69,7 +81,9 @@ function HealthMetrics() {
           className='bleedingData'
           onClick={() => navigate(page.route)}
         >
-          {page.name}
+          <img src= {page.image}
+           alt={page.name} className='metric-Image'/>
+           <span>{page.name}</span>
         </button>
       ))
   );
@@ -85,7 +99,7 @@ function HealthMetrics() {
       ) : (
         <p className='content'>No health metrics available for your current conditions.</p>
       )}
-    </div>
+       </div>
   )
 }
 

@@ -18,6 +18,7 @@ import BloodTest from "./Haemophilia Components/BloodTest";
 import ClottingLevels from "./Haemophilia Components/ClottingLevels";
 import HaemophiliaLabResults from "./Haemophilia Components/HaemophiliaLabResults";
 import JointPainTracker from "./Haemophilia Components/JointPainTracker";
+import Medications from "./Haemophilia Components/Medications";
 import Diabetes from "./Diabetes Components/Diabetes";
 import DiabetesResults from "./Diabetes Components/DiabetesResults";
 import BPResults from "./High Blood Pressure Components/BPResults";
@@ -64,6 +65,7 @@ function App() {
         <Route path="/ClottingLevels" element = {<ProtectedRoute><ClottingLevels/><NavBar/></ProtectedRoute>}/>
         <Route path="/HaemophiliaLabResults" element = {<ProtectedRoute><HaemophiliaLabResults/><NavBar/></ProtectedRoute>}/>
         <Route path="/JointPainTracker" element = {<ProtectedRoute><JointPainTracker/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Medications" element = {<ProtectedRoute><Medications/><NavBar/></ProtectedRoute>}/>
         <Route path="/Diabetes" element = {<ProtectedRoute><Diabetes/><NavBar></NavBar></ProtectedRoute>}/>
         <Route path="/DiabetesResults" element = {<ProtectedRoute><DiabetesResults/><NavBar/></ProtectedRoute>}/>
         <Route path="/HighBloodPressure" element = {<ProtectedRoute><HighBloodPressure/><NavBar/></ProtectedRoute>}/>

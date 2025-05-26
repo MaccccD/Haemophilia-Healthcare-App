@@ -53,6 +53,9 @@
    cursor: pointer;
    margin: 10px;
    opacity: 90%;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
 }
 .login-Btn:hover {
    background-color: #09295a;
