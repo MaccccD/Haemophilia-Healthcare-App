@@ -12,6 +12,29 @@
   font-size: 18;
   font-weight: bold;
 }
+#loading-Icon {
+    font-size: 50px;    
+    font-weight: bold;         
+    color: #444;                
+    display: flex;              
+    justify-content: center;
+    align-items: center;
+    height: 50vh;              
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+
+@keyframes rotate-hourglass {
+    0% {
+        transform: rotate(0deg);   
+    }
+    100% {
+        transform: rotate(-360deg); 
+    }
+}
+
+#loading-Icon{
+    animation: rotate-hourglass 60s linear infinite; 
+}
 .sub-heading {
   color: #FFEBD7;
   font-size: 24;

@@ -35,7 +35,6 @@ import { userAuthenticate } from './Context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import NavBar from "./Main Components/NavBar";
-import Logout from "./Main Pages/Logout";
 import Messages from "./Main Components/Messages";
 
 function ProtectedRoute({children}){

@@ -67,3 +67,12 @@
 .appointments:hover {
   background-color: #09295a;
 }
+.loading-Container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #103D81;
+  font-size: 2.0rem;
+}

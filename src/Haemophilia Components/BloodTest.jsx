@@ -1,24 +1,31 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
-
+import LoadingScreen from '../Main Components/LoadingScreen';
 
 
 function BloodTest() {
  
   const [tests, setTests] = useState([]);
   const [latestEntry, setLatestEntry]= useState(null);
+  const [loading, setLoading] = useState(false); //loading state to let users now data is being fetched
     //so when the component mounts; it retrieves what was the stored bleed count from the bleeding data that was logged in and saved already
   useEffect(()=>{
-   const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
-   console.log(storedBleedLogs);
-   if(storedBleedLogs.length > 0){
-    const lastEntry = storedBleedLogs[storedBleedLogs.length - 1] //getting the most stored bleed count
-    const bleedingCount = lastEntry.bleedingCount;
-    setLatestEntry(bleedingCount);
-
+    const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
+    console.log(storedBleedLogs);
+    const timerDelay = setTimeout(()=>{
+    setLoading(false);
+     }, 2000)
+    if(storedBleedLogs.length > 0){
+     const lastEntry = storedBleedLogs[storedBleedLogs.length - 1] //getting the most stored bleed count
+     const bleedingCount = lastEntry.bleedingCount;
+     setLatestEntry(bleedingCount);
      }
+     return () => clearTimeout(timerDelay);
   }, []);
+
+  if(loading){
+    return <LoadingScreen/>
+  }
   //when i want to show the tests on btn click:
     const bloodTestsToShow=()=>{
     //in here i just wanted to simulate a dynamic  example of blood tests the user may need to take based on the scale of the bleeding count from the previous bleeding episode they would have logged in;

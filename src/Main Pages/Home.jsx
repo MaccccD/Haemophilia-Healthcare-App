@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import HeroImage from "../Images/Hero Image.png";
 import { useNavigate } from 'react-router-dom';
 import { MdMessage } from 'react-icons/md';
@@ -8,7 +8,6 @@ function Home() {
 const username = JSON.parse(localStorage.getItem("userDetails"));
 //navigation :
 const nav = useNavigate();
-
 function Messages(){
   nav("/Messages");
   return;
@@ -17,8 +16,8 @@ function Appointments(){
   nav("/Appointments");
   return;
 }
+
   return (
-    
      <div className="home-content">
        <h1 className='home-heading'>Dashboard</h1>
 
@@ -31,7 +30,7 @@ function Appointments(){
        <img className='heroImage' src={HeroImage} alt='A doctor image with a stethoscope' title='heroImage' />
        <div className="home-buttons">
        <button onClick={Messages} className='messages'><MdMessage className='message-icon'/>Messages</button>
-        <button onClick={Appointments} className='appointments'><MdCalendarToday className='appointment-icon'/>Appointments</button>
+       <button onClick={Appointments} className='appointments'><MdCalendarToday className='appointment-icon'/>Appointments</button>
        </div>
     </div>
   )

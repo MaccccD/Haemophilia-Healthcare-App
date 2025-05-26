@@ -5,9 +5,10 @@
   margin-left: 290px;
   gap: 20px;
 }
-button {
+.buttonsWrapper {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
 }
 .bleedingData {
   align-items: center;

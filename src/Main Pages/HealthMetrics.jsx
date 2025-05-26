@@ -10,12 +10,15 @@ import MedicationIcon from "../Images/Medication.png";
 import DiabetesIcon from "../Images/Diabetes.png";
 import BloodPressureIcon from "../Images/BloodPressure.png";
 import MentalHealthIcon from "../Images/MentalHealth.png";
+import LoadingScreen from '../Main Components/LoadingScreen';
 
 
 function HealthMetrics() {
     const navigate = useNavigate();
     const[selectedConditions,setSelectedConditions] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
+    //loading state:
+const [loading, setLoading] = useState(true);
 
     function HandleSearch(e){
     setSearchQuery(e.target.value) ; //updating the search query state variable with whatever the user is typing in the search bar
@@ -24,11 +27,20 @@ function HealthMetrics() {
     // setting up the ease retrieval of the selected conditions when this components mounts so the selected health cinditions are obtained
     useEffect(()=>{
       const stored = JSON.parse(localStorage.getItem("selectedHealthConditions"));
+      const timerDelay = setTimeout(()=>{
+       setLoading(false);
+      }, 2000)
       if(Array.isArray(stored)){
         setSelectedConditions(stored); // storing  whats on  the local storage in the state variable as well during mounting
         console.log(stored);
       }
+      return () => clearTimeout(timerDelay);
     }, []) // only want the conditions to mounts once, hence its empty here!
+
+    
+       if(loading){
+       return <LoadingScreen/>
+        }
     
     // Config of what to show under each health conditon selected condition
    const healthConditionPages = {
@@ -95,7 +107,9 @@ function HealthMetrics() {
       <h1 className='heading'>Heyy, All things about your health!!</h1>
        <input type='search' placeholder='Search...' className='search' onChange={HandleSearch}/>
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (
-        renderButtons()
+        <div className='buttonsWrapper'>
+          {renderButtons()}
+        </div>
       ) : (
         <p className='content'>No health metrics available for your current conditions.</p>
       )}

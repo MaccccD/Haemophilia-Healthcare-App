@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import LoadingScreen from '../Main Components/LoadingScreen';
 
 function ClottingLevels() {
    //factors affecting clotting levels:
@@ -10,19 +11,28 @@ function ClottingLevels() {
    const [medicalCondition, setMedicalCondition] = useState("");
    const [medications, setMedications] = useState("");
    const [diet, setDiet] = useState("");
+   const [loading, setLoading] = useState(true);
 
    const svgRef = useRef();
    
      //retriveing the blood clot period from bleeding data:
      useEffect(()=>{
       const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
+      const timerDelay = setTimeout(()=>{
+        setLoading(false);
+       }, 2000)
       if(storedBleedLogs.length > 0){
        const lastBloodClotEntry = storedBleedLogs[storedBleedLogs.length - 1] //getting the selected option from the drop down
        const clottingPeriod = lastBloodClotEntry.bloodClot;
        setLatestBloodClot(clottingPeriod);
        console.log(clottingPeriod);
         }
+        return () => clearTimeout(timerDelay);
      }, []);
+
+     if(loading){
+      return <LoadingScreen/>
+     }
 
     
 
