@@ -20,7 +20,7 @@ function Notifications() {
    }
   return (
     <div className='notifications-Container'>
-      <h1 className='heading'>Heyy, Welcome to  your notif updates</h1>
+      <h1 className='heading'>Notification  Updates:</h1>
       <p className='content'> On Today's Reminders: {getDateStamp()}</p>
       <ul className='NotifContainer'>
         {notifUpdates.map((update, index)=>{

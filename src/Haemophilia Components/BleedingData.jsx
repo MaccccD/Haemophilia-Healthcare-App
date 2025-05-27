@@ -60,9 +60,9 @@ function BleedingData() {
        <p className='content'>2. How long does it take for your blood to clot when your bleeding ?</p>
        <select className='setUp' onChange={(b)=> setBloodClot(b.target.value)} value={bloodClot}>
          <option value="">Select period below:</option>
-        <option value= "25-30 secs">25 - 30 seconds</option>
-        <option value= "45 secs">45 seconds</option>
-        <option value= "60 secs">60 seconds</option>
+        <option value= "25-30 seconds">25 - 30 seconds</option>
+        <option value= "45 seconds">45 seconds</option>
+        <option value= "60 seconds">60 seconds</option>
        </select>
 
 

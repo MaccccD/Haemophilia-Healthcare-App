@@ -205,3 +205,12 @@
 .haemophiliaResults-Btn:hover {
   background-color: #09295a;
 }
+.result-cell.mild{
+ color: #00FF00;
+}
+.result-cell.moderate {
+  color: #F39B0E;
+}
+.result-cell.severe {
+  color: #fbbf24;
+}
