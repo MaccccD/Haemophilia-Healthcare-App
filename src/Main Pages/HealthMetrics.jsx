@@ -18,7 +18,7 @@ function HealthMetrics() {
     const[selectedConditions,setSelectedConditions] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     //loading state:
-const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     function HandleSearch(e){
     setSearchQuery(e.target.value) ; //updating the search query state variable with whatever the user is typing in the search bar
@@ -79,7 +79,6 @@ const [loading, setLoading] = useState(true);
       {name: "Mental Health Results", route: "/MentalHealthResults", image: MentalHealthIcon}
     ]
   };
-  
   //The relevant health condition btns based on what health conditions was selcted and saved to the local storage
     const renderButtons = () => {
     return selectedConditions.flatMap(condition => // flat map here flattens the results of the state variables array into one level depth to get one flat array of btns
@@ -104,7 +103,7 @@ const [loading, setLoading] = useState(true);
  
   return (
     <div className='health-Container'>
-      <h1 className='heading'>Heyy, All things about your health!!</h1>
+      <h1 className='heading'>All things about your health:</h1>
        <input type='search' placeholder='Search...' className='search' onChange={HandleSearch}/>
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (
         <div className='buttonsWrapper'>

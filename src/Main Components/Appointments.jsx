@@ -2,7 +2,7 @@ import React from 'react'
 
 function Appointments() {
   return (
-    <div>
+    <div className='appointments-Container'>
       <p className='content'>Here are your appointments:</p>
     </div>
   )

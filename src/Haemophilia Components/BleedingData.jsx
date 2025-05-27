@@ -36,7 +36,7 @@ function BleedingData() {
     const updatedLogs = [...existingLogs, bleedingLog];
     localStorage.setItem("bleedingLogs", JSON.stringify(updatedLogs));
 
-    alert("Bleeding episode Logged! Yay!");
+    alert("Bleeding episode Logged!");
     //clear all the field(s) after each bleeding episode entry:
     setBleedingCount("");
     setIntensity("");
@@ -51,8 +51,7 @@ function BleedingData() {
 
   return (
     <div className='bleeding-Container'>
-      <h2 className='subheading'>Please log on your bleeding episodes below:</h2>
-    
+      <h2 className='heading'>Bleeding episodes Entry:</h2><br/>
       <p className='content'>1. How often have you bled today?</p>
       <p className='content'>Bleeding Count: {`${bleedingCount}`}</p>
        <button onClick={()=> setBleedingCount(prev => Math.min(prev + 1, 100))} className='bleed-Count'>+</button>

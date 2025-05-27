@@ -173,3 +173,35 @@
   opacity: 100;
   cursor: pointer; 
 }
+.bloodTests-Btn {
+  background-color: #103D81;
+  display: block;
+  margin-left: 0;
+  margin-top: 40px;
+  color: #FFEBD7;
+  border-radius: 25px;
+  width: 180px;
+  height: 50px;
+  border: none;
+  opacity: 100;
+  cursor: pointer
+}
+.bloodTests-Btn:hover{
+  background-color: #09295a;
+}
+.haemophiliaResults-Btn {
+  background-color: #103D81;
+  display: block;
+  margin-left: 0;
+  margin-top: 40px;
+  color: #FFEBD7;
+  border-radius: 25px;
+  width: 180px;
+  height: 50px;
+  border: none;
+  opacity: 100;
+  cursor: pointer
+}
+.haemophiliaResults-Btn:hover {
+  background-color: #09295a;
+}

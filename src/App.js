@@ -74,8 +74,8 @@ function App() {
         <Route path="/MentalHealth" element = {<ProtectedRoute><MentalHealthResults/><NavBar/></ProtectedRoute>}/>
         <Route path="/PTSD" element = {<ProtectedRoute><PTSD/><NavBar/></ProtectedRoute>}/>
         <Route path="/Login" element = {<Login/>}/>
-        <Route path="/Messages" element = {<Messages/>}/>
-        <Route path="/Appointments" element = {<Appointments/>}/>
+        <Route path="/Messages" element = {<ProtectedRoute><Messages/><NavBar/></ProtectedRoute>}/>
+        <Route path="/Appointments" element = {<ProtectedRoute><Appointments/><NavBar/></ProtectedRoute>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </AuthContextProvider>

@@ -82,12 +82,11 @@ function BloodTest() {
 
   return (
     <div className='bloodTest-Container'>
-      <h1 className='subheading'>Here are your blood tests:</h1>
+      <h1 className='subheading'> Recommended blood tests:</h1><br/>
       <p className='content'> 
         Based  on your bleeding log (Count: {latestEntry ?? "No Entry was retrieved"}), the following tests are recommended to take: 
       </p>
-
-      <button onClick={bloodTestsToShow} className='nextBtn'>Show Blood Tests</button>
+      <button onClick={bloodTestsToShow} className='bloodTests-Btn'>Show Blood Tests</button>
 
       {tests.length > 0 && (
         <table className='table'>

@@ -49,6 +49,22 @@
 .messages:hover {
   background-color: #09295a;
 }
+.messages-Container {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  margin-left: 290px;
+  gap: 10px;
+  margin-top: 5px;
+}
+.appointments-Container {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  margin-left: 290px;
+  gap: 10px;
+  margin-top: 5px;
+}
 .appointments {
  background-color: #103D81;
  margin: 5px;
