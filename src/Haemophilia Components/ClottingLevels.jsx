@@ -93,10 +93,10 @@ function ClottingLevels() {
         .attr("x", width/2)
         .attr("y", 30)
         .attr("text-anchor", "middle")
-        .attr("font-color", "#FFEBD7")
+        .attr("fill", "#FFEBD7")
         .attr("font-size", "15px")
         .attr("font-weight", "bold")
-        .text("Clotting Levels impact by Factor");
+        .text("Clotting Levels impact by Factors");
 
 
         //creating the X-Axis:
@@ -114,7 +114,7 @@ function ClottingLevels() {
 
          // Legend / Color key:
         const legendData = [
-         { color: "green", label: "Low Impact" },
+         { color: "green", label: "Low Impact"},
          { color: "yellow", label: "Medium Impact" },
          { color: "red", label: "High Impact" },
           ];
@@ -137,7 +137,7 @@ function ClottingLevels() {
          .attr("x", width - 130)
          .attr("y", 12)
          .attr("font-size", "12px")
-         .attr("font-color", "#FFEBD7")
+         .attr("fill", "#FFEBD7")
          .text(d => d.label);
 
         //Designing Bars:
@@ -173,7 +173,7 @@ function ClottingLevels() {
 
   return (
     <div className='clottingLevels-Container'>
-       <h2 className='subheading'>Please log on your Clotting factors below:</h2><br/>
+       <h2 className='subheading'>Clotting factors data entry:</h2><br/>
       <p className='content'>Based on your bleeding data, it took {latestBloodClot} for your blood to clot.</p><br/>
       <p className='content'> Please fill in the following fields that also affect your blood clotting ability to generate a specific coagulation test:</p>
       <label className='content'> 1. How old are you ?:</label><br /><br />
@@ -209,7 +209,7 @@ function ClottingLevels() {
       < label className='content'>5. Please specify which kind of medications you take?</label><br /><br />
       <input type='text' value={medications} placeholder='Medications like blood thinners, red blood cells pills etc.' className='setUp' onChange={(m)=> setMedications(m.target.value)}/>
        <br /><br />
-      <label className='content'>6. Please explain your diet intake :</label><br/>
+      <label className='content'>6. Please explain your diet intake :</label><br/><br/>
       <input value={diet} type='text' placeholder='Include foods rich in Vitamin K' className='setUp' onChange={(d)=> setDiet(d.target.value)}/>
       <br />
       <button onClick={renderChart} className='clotting-Chart-Btn'> Generate Clotting Levels Chart </button>

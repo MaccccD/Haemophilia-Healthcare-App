@@ -83,7 +83,7 @@ function HealthMetrics() {
     const renderButtons = () => {
     return selectedConditions.flatMap(condition => // flat map here flattens the results of the state variables array into one level depth to get one flat array of btns
        (healthConditionPages[condition] || [])
-      .filter(page => //in here "filter" ensures that the search query (so what is typed) includes the page's name (what's the actual result of the bttuons that are rendered)
+      .filter(page => //in here "filter" ensures that the search query (so what is typed) includes the page's name (what's the actual result of the buttons that are rendered)
         page.name.toLowerCase().includes(searchQuery.toLowerCase()) // making whats being typed lowercase to avoid case mismatch when searching for the actual health metric
       )
       .map((page, index) => (
