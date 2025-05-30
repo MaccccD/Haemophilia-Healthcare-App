@@ -5,7 +5,7 @@ function Diabetes() {
 
   return (
     <div className='diabetes-Container'>
-      <h1 className='heading'>Sugar diebetes levels:</h1>
+      <h1 className='heading'>Sugar diabetes levels:</h1>
       <p className='content'> Please login your informagtion about your condition:</p>
      
 

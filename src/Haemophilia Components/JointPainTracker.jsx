@@ -7,7 +7,7 @@ function JointPainTracker() {
   const[customDate, setCustomDate] = useState("")
   const[jointsAffected, setAffectedJoints] = useState("");
   const [painDuration, setPainDuration] = useState(0);
-  const[swelling, setSwelling] = useState("");
+  const[swelling, setSwelling] = useState(false);
   const [mobility, setMobility] = useState("");
   const[trigger, setTrigger] = useState("");
 
@@ -59,6 +59,10 @@ function JointPainTracker() {
     })
   };
 
+  const handleSwelling = () =>{
+    setSwelling(prev => !prev);
+  };
+
   return (
     <div className='jointTracker-Container'>
       <h1 className='heading'> Joint bleeding (hermathosis tracker):</h1>
@@ -90,8 +94,13 @@ function JointPainTracker() {
        <br/><br/>
       <label className='content'>3. Pain Severity? (Between 1- 10; 1 = Worst , 10= Not that severe)</label><br/><br/>
       <input type='range' className='setUp' min="1" max= "10" value={painDuration} onChange={(t)=> setPainDuration(t.target.value)} required/>
-
-
+      <br/><br/>
+      <label className='content'>4. Swelling Present ?</label><br/>
+      <label className='toggle-switch'>
+      <input type='checkbox' checked= {swelling}  onChange={handleSwelling} />
+      <span className='slider'/>
+      </label>
+     <p>{swelling ? "Yes" : "No"}</p>
     </div>
   )
 }

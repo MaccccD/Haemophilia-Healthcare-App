@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Settings() {
+  const [toggleAppointments, setToggleAppoints] = useState(false);
+
+
+
+  const handleAppointmentsToggle = () =>{
+    setToggleAppoints(prev => !prev);
+  }
   return (
     <div className='settings-Container'>
-      <h1 className='heading'>Heyy, this is your settings Page:</h1>
+      <h1 className='heading'>Settings:</h1>
 
-      <p className='settings-Text'>Content coming right up!</p>
+      <label className='notif-Container'>Notifications</label>
     </div>
   )
 }
