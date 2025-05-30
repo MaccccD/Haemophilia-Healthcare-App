@@ -28,6 +28,7 @@ function JointPainTracker() {
 
   const getFinalDate = ()=>{ // getting final date based on what the user selected.
     if(selectedTimeframe === "custom") return customDate;
+    console.log(customDate);
 
     const today = new Date();
     let daysAgo = 0;
@@ -56,10 +57,10 @@ function JointPainTracker() {
 
   return (
     <div className='jointTracker-Container'>
-      <p className='content'>Here is your joint bleeding (hermathosis tracker):</p>
+      <h1 className='heading'> Joint bleeding (hermathosis tracker):</h1>
       <p className='content'>Please fill in your joint pain episode entry below</p>
 
-      <label className='content'>1. Date of Last Pain Event:</label>
+      <label className='content'>1. Date of Last Pain Event:</label><br/><br/>
       <select value={selectedTimeframe} className='setUp' onChange={handleTimeFrameChange}>
         <option value= "">Please select the correct pain event period:</option>
         <option value="today">Today</option>
@@ -72,9 +73,9 @@ function JointPainTracker() {
         <input type='date' value={customDate} onChange={handleDateChange}/>
       )}
 
-      <p><strong>Selected Date: {getFinalDate}</strong></p>
+      <p><strong>Selected Date: {getFinalDate()}</strong></p>
 
-      <label className='content'>2. Which joints were affected by the pain felt?</label>
+      <label className='content'>2. Which joints were affected by the pain felt?</label><br/><br/>
       < select value={jointsAffected} className='setUp' onChange={(d)=> setAffectedJoints(d.target.value)}>
        <option value= ""> Select option below:</option>
        <option value= "Ankles">Knees (Hinge)</option>
