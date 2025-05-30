@@ -189,6 +189,9 @@
 .bloodTests-Btn:hover{
   background-color: #09295a;
 }
+.emphasized-Text {
+  color: #EEAF00;
+}
 .haemophiliaResults-Btn {
   background-color: #103D81;
   display: block;
@@ -216,7 +219,6 @@
 }
 .toggle-switch {
   display: inline-block;
-  margin-top: 20px;
   position: relative;
   width: 50px;
   height: 30px;
@@ -229,7 +231,7 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  background-color: #103D81;
+  background-color: #fbbf24;
   top: 0;
   left: 0;
   right: 0;
@@ -249,7 +251,7 @@
   border-radius: 50%;
 }
 input:checked + .slider {
-  background-color: #09295a;
+  background-color: green;
 }
 input:checked + .slider::before{
   transform: translateX(22px);

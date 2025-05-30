@@ -88,6 +88,7 @@ function BleedingData() {
 
        <p className='content'>8. Pain Level (1-10):</p>
        <input type='range' placeholder='1 being the worst, 10 being the least' className='setUp' min="1" max= "10" value={painLevel} onChange={(e)=> setPainLevel(e.target.value)} required/>
+       <p>Pain level : {painLevel}</p>
 
        <p className='content'>9. Additional Notes:</p>
        <textarea value={notes}   className= "setUp" onChange={(e)=> setNotes(e.target.value)} rows= "4" required/>
