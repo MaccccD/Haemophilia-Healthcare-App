@@ -34,7 +34,8 @@ function HealthConditionSetUp() {
   }
   return (
     // This is the 3rd part of the app where patients will get to choose a health condition they are direclty affected by:
-    <div>
+     <div className='wrapper'>
+     <div className='healthIssues-Container'>
      <h1 className='heading'>Health Issue Details:</h1>
      <p className='content'>Please tick only the health issue(s) applicable to you:</p>
      <form onSubmit={HandleHealthConditions}>
@@ -52,7 +53,7 @@ function HealthConditionSetUp() {
       </label>
       <label>
       <input type='checkbox' onChange={(e)=> setPTSD(e.target.checked)} className='healthCondition'/>
-       Post Traumatic Stress Disorder
+       Post Traumatic Stress Disorder (PTSD)
       </label>
       <label>
       <input type='checkbox' onChange={(e)=> setAnxiety(e.target.checked)} className='healthCondition'/>
@@ -66,8 +67,10 @@ function HealthConditionSetUp() {
       <input type='checkbox' onChange={(e)=> setGeneric(e.target.checked)} className='healthCondition'/>
        Generic (Other)
       </label>
-      <button className='createAccountBtn'>Create Account</button>
+      <br/><br/>
+      <button className='createAccount-Btn'>Create Account</button>
      </form>
+    </div>
     </div>
   )
 }

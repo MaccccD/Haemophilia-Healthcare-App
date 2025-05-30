@@ -10,6 +10,9 @@ import MedicationIcon from "../Images/Medication.png";
 import DiabetesIcon from "../Images/Diabetes.png";
 import BloodPressureIcon from "../Images/BloodPressure.png";
 import MentalHealthIcon from "../Images/MentalHealth.png";
+import ptsdIcon from "../Images/PTSD.png";
+import anxietyIcon from "../Images/Anxieetyyy.png";
+import depressionIcon from "../Images/Depression.png";
 import LoadingScreen from '../Main Components/LoadingScreen';
 
 
@@ -24,7 +27,7 @@ function HealthMetrics() {
     setSearchQuery(e.target.value) ; //updating the search query state variable with whatever the user is typing in the search bar
     }
 
-    // setting up the ease retrieval of the selected conditions when this components mounts so the selected health cinditions are obtained
+    // setting up the ease retrieval of the selected conditions when this components mounts so the selected health conditions are obtained
     useEffect(()=>{
       const stored = JSON.parse(localStorage.getItem("selectedHealthConditions"));
       const timerDelay = setTimeout(()=>{
@@ -64,15 +67,15 @@ function HealthMetrics() {
     ],
   
      "PTSD": [
-      {name: "PTSD", route: "/PTSD", image: MentalHealthIcon}
+      {name: "PTSD", route: "/PTSD", image:ptsdIcon}
     ],
 
      "Anxiety": [
-      {name: "Anxiety", route: "/Anxiety", image: MentalHealthIcon}
+      {name: "Anxiety", route: "/Anxiety", image: anxietyIcon}
     ],
   
      "Depression": [
-      {name: "Depression", route: "/Depression", image: MentalHealthIcon}
+      {name: "Depression", route: "/Depression", image: depressionIcon}
     ],
 
      "Generic'Other'": [

@@ -22,7 +22,7 @@ function JointPainTracker() {
     setSelectedTimeframe(event.target.value);
 
     if(event.target.value != "custom"){
-      setCustomDate(""); // clering the date if the picked wasn't the custom one
+      setCustomDate(""); // clearing the date if the picked wasn't the custom one
     }
   }
 
@@ -52,7 +52,11 @@ function JointPainTracker() {
 
     const date = new Date(today);
     date.setDate(today.getDate()  - daysAgo);
-    return date.toISOString().split("T")[0]; // to sho the yyy/mm/dd format.
+    return date.toLocaleDateString('en-GB', {
+       day: '2-digit',
+       month: 'long',
+       year: 'numeric'
+    })
   };
 
   return (
@@ -76,13 +80,18 @@ function JointPainTracker() {
       <p><strong>Selected Date: {getFinalDate()}</strong></p>
 
       <label className='content'>2. Which joints were affected by the pain felt?</label><br/><br/>
-      < select value={jointsAffected} className='setUp' onChange={(d)=> setAffectedJoints(d.target.value)}>
+      <select value={jointsAffected} className='setUp' onChange={(d)=> setAffectedJoints(d.target.value)}>
        <option value= ""> Select option below:</option>
        <option value= "Ankles">Knees (Hinge)</option>
        <option value= "Elbows">Elbows (Hinge)</option>
        <option value= "neck & wrist">Wrist(Pivot)</option>
-
+       <option value="Shoulders & Hips">Shoulders & Hips(Ball & Socket)</option>
       </select>
+       <br/><br/>
+      <label className='content'>3. Pain Severity? (Between 1- 10; 1 = Worst , 10= Not that severe)</label><br/><br/>
+      <input type='range' className='setUp' min="1" max= "10" value={painDuration} onChange={(t)=> setPainDuration(t.target.value)} required/>
+
+
     </div>
   )
 }

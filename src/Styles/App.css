@@ -63,24 +63,8 @@
    opacity: 100;
    cursor: pointer;
 }
-.createAccountBtn{
-   background-color: #103D81;
-   color: #FFEBD7;
-   border-radius: 25px;
-   width: 120px;
-   height: 50px;
-   border: none;
-   opacity: 100;
-}
-.createAccountBtn:hover{
-  background-color: #103D81;
-}
 label {
   color: #FFEBD7;
-}
-.healthCondition {
-  width: 30px;
-  height: 30px;
 }
 .search {
   color: #FFEBD7;
