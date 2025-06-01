@@ -6,7 +6,6 @@ import BloodTestIcon from "../Images/BloodTests.png";
 import ClottingLevelsIcon from "../Images/ClottingLevels.png";
 import TestsResultsIcon from "../Images/Resultsss.png";
 import JointPainIcon from "../Images/JointPainTracker.png";
-import MedicationIcon from "../Images/Medication.png";
 import DiabetesIcon from "../Images/Diabetes.png";
 import BloodPressureIcon from "../Images/BloodPressure.png";
 import MentalHealthIcon from "../Images/MentalHealth.png";
@@ -53,7 +52,6 @@ function HealthMetrics() {
       { name: "Clotting Levels", route: "/ClottingLevels", image: ClottingLevelsIcon},
       { name: "Haemophilia Lab Results", route: "/HaemophiliaLabResults", image: TestsResultsIcon},
       { name: "Joint Pain Tracker", route: "/JointPainTracker", image: JointPainIcon},
-      { name: "Medications", route: "/Medications", image: MedicationIcon}
     ],
     
      "Sugar Diabetic": [
