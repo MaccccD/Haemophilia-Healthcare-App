@@ -12,7 +12,7 @@ function Logout() {
     function HandleLogOut(event){
      event.preventDefault();
      if(LogOut){
-        navigate("/AccountSetUpPage1");
+        navigate("/Login");
         return;
      }
     }

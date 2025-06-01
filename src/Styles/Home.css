@@ -92,3 +92,57 @@
   color: #103D81;
   font-size: 2.0rem;
 }
+
+@media screen and (max-width: 768px) {
+   .home-content,
+   .messages-Container,
+   .appointments-Container {
+    margin-left: 0;
+    margin-bottom: 80px;
+    padding: 15px;
+   }
+
+   .home-heading {
+    font-size: 20px;
+    text-align: center;
+   }
+
+   .home-subheading {
+    font-size: 16px;
+    text-align: center;
+   }
+
+   .home-text {
+    font-size: 14px;
+    text-align: center;
+   }
+
+   .heroImage {
+    width: 100%;
+    height: auto;
+    align-self: center;
+    border-radius: 20px;
+   }
+
+   .home-buttons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+   }
+
+   .messages,.appointments {
+    width: 90%;
+    max-width: 320px;
+    height: 50px;
+    font-size: 16px;
+   }
+
+   .loading-Container {
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: center;
+   }
+   
+}
+
+

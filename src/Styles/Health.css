@@ -52,14 +52,6 @@
   gap: 20px;
   color: #FFEBD7  
 }
-.medications-Container {
-  display: block;
-  flex-direction: column;
-  padding: 30px;
-  margin-left: 290px;
-  gap: 20px;
-  color: #FFEBD7
-}
 .clottingLevels-Container {
   display: block;
   flex-direction: column;
@@ -263,3 +255,22 @@ input:checked + .slider::before{
 .summary{
   margin: 20px;
 }
+/* @media screen and (max-width: 768px) {
+  .health-Container,
+  .bleeding-Container,
+  .clottingLevels-Container,
+  .bloodTest-Container,
+  .anxiety-Container,
+  .bloodPressure-Container,
+  .bloodPressureResults-Container,
+  .diabetes-Container,
+  .diabetesResults-Container,
+  .jointTracker-Container,
+  .results-Container,
+  .depression-Container,
+  .ptsd-Container,
+  .mentalHealthResults-Container{
+    margin-left: 0;
+    padding: 15px;
+  }
+} */
