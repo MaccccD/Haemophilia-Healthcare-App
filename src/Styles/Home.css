@@ -65,12 +65,12 @@
 .messages-Text {
   color: #FFEBD7;
   background-color: #103D81;
-  font-size: 15;
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
 }
 .Text {
-  color: #FFEBD7;
+  color: #00FF00;
   font-size: 15;
   text-align: center;
   background-color: #103D81;
@@ -80,6 +80,7 @@
   width: 50px;
   height: 48px;
   border-radius: 25px;
+  background-color: #103D81;
 }
 
 .appointments-Container {
@@ -91,18 +92,25 @@
   margin-top: 5px;
 }
 .messageBtn {
- background-color: #09295a;
+ display: block;
+ justify-self: center;
+ background-color: #072B62;
  justify-content: center;
  margin: 5px;
- margin-top: 20px;
+ margin-top: 10px;
  text-align: center;
  color: #FFEBD7;
  border-radius: 25px;
- width: 300px;
- height: 70px;
+ width: 700px;
+ height: 75px;
  border: none;
- z-index: 1000;
- opacity: 60%;
+ z-index: 300;
+ opacity: 70%;
+ cursor: pointer;
+}
+.messageBtn:hover {
+  background-color: #09295a;
+  border: 2px solid #072B62;
 }
 .appointments {
  background-color: #103D81;
@@ -140,7 +148,10 @@
     margin-bottom: 80px;
     padding: 15px;
    }
-
+    .messageBtn{
+      width: 300px;
+      height: 75px;
+    }
    .home-heading {
     font-size: 20px;
     text-align: left;
@@ -153,6 +164,10 @@
 
    .home-text {
     font-size: 14px;
+    text-align: left;
+   }
+   .Text {
+    flex-wrap: wrap;
     text-align: left;
    }
 
