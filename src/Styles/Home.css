@@ -57,6 +57,31 @@
   gap: 10px;
   margin-top: 5px;
 }
+.messages-Holder {
+  background-color: #103D81;
+  border-radius: 15px;
+  justify-content: center;
+}
+.messages-Text {
+  color: #FFEBD7;
+  background-color: #103D81;
+  font-size: 15;
+  text-align: center;
+  font-weight: bold;
+}
+.Text {
+  color: #FFEBD7;
+  font-size: 15;
+  text-align: center;
+  background-color: #103D81;
+}
+.doctor-Image{
+  display: flex;
+  width: 50px;
+  height: 48px;
+  border-radius: 25px;
+}
+
 .appointments-Container {
   display: flex;
   flex-direction: column;
@@ -64,6 +89,20 @@
   margin-left: 290px;
   gap: 10px;
   margin-top: 5px;
+}
+.messageBtn {
+ background-color: #09295a;
+ justify-content: center;
+ margin: 5px;
+ margin-top: 20px;
+ text-align: center;
+ color: #FFEBD7;
+ border-radius: 25px;
+ width: 300px;
+ height: 70px;
+ border: none;
+ z-index: 1000;
+ opacity: 60%;
 }
 .appointments {
  background-color: #103D81;

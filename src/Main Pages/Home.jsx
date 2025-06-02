@@ -36,7 +36,7 @@ function Appointments(){
        <button onClick={Messages} className='messages'><MdMessage className='message-icon'/>Messages</button>
        <div className="notification-badge">{messagesValue}</div>
        <button onClick={Appointments} className='appointments'><MdCalendarToday className='appointment-icon'/>Appointments</button>
-       <div className='appointment-badge'>4</div>
+       <div className='appointment-badge'>2</div>
        </div>
     </div>
   )

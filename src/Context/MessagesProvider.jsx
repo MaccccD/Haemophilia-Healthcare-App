@@ -30,7 +30,7 @@ function MessagesProvider({children}) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-        const randomNewMessages = Math.floor(Math.random() * 1); 
+        const randomNewMessages = Math.floor(Math.random() * 2); 
         if (randomNewMessages > 0) {
         setMessagesValue(prev => {
         const newVal = prev + randomNewMessages;
@@ -38,7 +38,7 @@ function MessagesProvider({children}) {
         return newVal;
       });
     }
-  }, 9000); // every 5 seconds
+  }, 9000); // every  9 seconds
 
   return () => clearInterval(interval);
 }, []);
@@ -49,7 +49,7 @@ function MessagesProvider({children}) {
     
 
     function messagesNumber (){
-      const randomValue = Math.floor(Math.random() * 2);
+      const randomValue = Math.floor(Math.random() * 1);
       const newValue = messagesValue + randomValue;
       setMessagesValue(newValue);
       localStorage.setItem("messagesValue", JSON.stringify({ messagesValue : newValue})); 
