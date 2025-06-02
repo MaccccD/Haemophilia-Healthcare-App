@@ -43,7 +43,7 @@ const messagesHolder = [
             <div className='selectedMessage'>
               <p className='Text'>{messageText}</p>
               </div>
-          )};
+          )}
           <br/>
           {messagesHolder.map((msg, index)=>{
             return(
