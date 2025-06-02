@@ -114,7 +114,7 @@
 
    .home-text {
     font-size: 14px;
-    text-align: center;
+    text-align: left;
    }
 
    .heroImage {
@@ -125,6 +125,8 @@
    }
 
    .home-buttons {
+    position: relative;
+    display: inline-block;
     flex-direction: column;
     gap: 15px;
     align-items: center;

@@ -22,11 +22,10 @@ function Appointments(){
        <h1 className='home-heading'>Dashboard</h1>
 
        <h2 className='home-subheading'>Welcome {username.fullNames}</h2>
-
        <p className='home-text'>
        Take a look at your recent messages and scheduled appointments below:
        </p>
-
+       
        <img className='heroImage' src={HeroImage} alt='A doctor image with a stethoscope' title='heroImage' />
        <div className="home-buttons">
        <button onClick={Messages} className='messages'><MdMessage className='message-icon'/>Messages</button>

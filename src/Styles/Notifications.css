@@ -6,3 +6,15 @@
   gap: 20px;
   color: #FFEBD7;
 }
+@media screen  and (max-width: 768px) {
+   .notifications-Container {
+    margin-left: 0;
+    padding: 10px;
+    width: 100%;
+    top: auto;
+    left: 0;
+    right: 0;
+    min-height: auto;
+    flex-wrap: wrap;
+   }
+}

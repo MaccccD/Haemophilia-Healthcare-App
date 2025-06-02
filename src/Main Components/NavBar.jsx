@@ -20,7 +20,6 @@ const location = useLocation();
 const isActive = (path) => location.pathname === path;
 
   return (
-    <div>
      <div className='sidebar'>
         <img src= {appLogoImage} alt='App-Logo' className='logo' title='Logo'/>
         <img src={profileImage} alt='user profile picture' className='user-profile' title='User profile picture'/>
@@ -34,9 +33,7 @@ const isActive = (path) => location.pathname === path;
          </nav>
          <Logout/>  
      </div>
-    </div>
-    
-  )
+  );
 }
 
 export default NavBar;

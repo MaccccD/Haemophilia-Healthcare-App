@@ -16,12 +16,9 @@
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
    transition: transform 0.3s ease; 
 }
-@media screen and (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
+.logOut-mobile {
+    display: none;
 }
-
 .logo {
     font-size: 32px;
     width: 80px;
@@ -46,6 +43,9 @@
 }
 nav {
     background-color: #380D85; 
+}
+.top-bar{
+    display: none;
 }
 .nav-links {
     display: flex;
@@ -161,9 +161,12 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-   }
-   .logo, .username, .user-profile, .logOut{
+   } 
+   .logo, .username, .user-profile{
     display: none;
+   }
+   .logOut {
+    display: flex;
    }
    .nav-Links {
     display: flex;
@@ -185,8 +188,12 @@ nav {
     font-size: 16px;
     text-align: center;
     min-width: 60px;
-    border-radius: 12px;
+    border-radius: 20px;
     background-color: transparent;
+    border: 1.4px solid #FFEBD7;
+    border-spacing: 20px;
+    margin-left: 2px;
+    transition: all 0.3s ease;
    }
    .nav-item.active{
     color: #EBC801;
@@ -204,14 +211,14 @@ nav {
    }
    .notification-badge {
     position: absolute;
-    top: 560px;
-    right: 80px;
+    top: 40px;
+    right: 75px;
     background-color: red;
     color: #FFEBD7;
     border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.7em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,18 +226,21 @@ nav {
    }
    .appointment-badge {
     position: absolute;
-    bottom: 175px;
+    bottom: 20px;
     right: 75px;
     background-color: red;
     color: #FFEBD7;
     border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.7em;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+   }
+   .sidebar > *:last-child {
+    display: none;
    }
  }
 
