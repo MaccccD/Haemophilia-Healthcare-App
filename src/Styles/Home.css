@@ -126,7 +126,7 @@
 
    .home-buttons {
     position: relative;
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     gap: 15px;
     align-items: center;

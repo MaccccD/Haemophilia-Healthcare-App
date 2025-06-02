@@ -30,7 +30,7 @@ function MessagesProvider({children}) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-        const randomNewMessages = Math.floor(Math.random() * 2); 
+        const randomNewMessages = Math.floor(Math.random() * 1); 
         if (randomNewMessages > 0) {
         setMessagesValue(prev => {
         const newVal = prev + randomNewMessages;
