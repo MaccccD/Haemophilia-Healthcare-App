@@ -30,7 +30,9 @@ function Appointments(){
        <img className='heroImage' src={HeroImage} alt='A doctor image with a stethoscope' title='heroImage' />
        <div className="home-buttons">
        <button onClick={Messages} className='messages'><MdMessage className='message-icon'/>Messages</button>
+       <div className="notification-badge">6</div>
        <button onClick={Appointments} className='appointments'><MdCalendarToday className='appointment-icon'/>Appointments</button>
+       <div className='appointment-badge'>4</div>
        </div>
     </div>
   )
