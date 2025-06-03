@@ -1,0 +1,220 @@
+
+.appointments-header {
+  color: #FFEBD7;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.appointments-Holder {
+  background-color: #103D81;
+  opacity: 80%;
+  border-radius: 15px;
+  justify-content: center;
+}
+.calendar-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #103d81;
+}
+.appointments-Text {
+  color: #FFEBD7;
+  background-color: #103D81;
+  font-size: 23px;
+  text-align: center;
+  font-weight: bold;
+}
+.nav-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #072B62;
+    border-radius: 10px;
+    border: none;
+}
+
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #103d81;
+}
+.month-title {
+  color: #FFEBD7;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  background-color: #103d81;
+}
+
+.day-headers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+  background-color: #103d81;
+}
+
+.day-header {
+  color: #FFEBD7;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 600;
+  padding: 8px 0;
+  background-color: #103d81;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 2fr);
+  gap: 2px;
+  margin-left: 65px;
+  padding: 8px 0;
+  background-color: #103d81;
+}
+
+.calendar-day {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;;
+  border: none;
+  padding: 5px 0;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  transition: all 0.2s ease;
+}
+.calendar-day:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.calendar-day.disabled {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.calendar-day.has-appointment {
+  background: red !important;
+}
+
+.calendar-day.selected {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.appointment-details {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.details-title {
+  color: #FFEBD7;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.detail-label {
+  color: white;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.detail-value {
+  color: white;
+  text-align: right;
+}
+
+.detail-about {
+  max-width: 60%;
+  line-height: 1.4;
+}
+
+/* No Appointment Message */
+.no-appointment {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 80px;
+  text-align: center;
+  background-color: #103D81;
+}
+.noappointment-Text {
+    background-color: #103D81;
+}
+.no-appointment p {
+  color: white;
+  font-size: 16px;
+  margin: 0;
+}
+
+.notifications-badge {
+  position: absolute;
+  top: -2px;
+  right: 8px;
+  background: red;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .calendar-day {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  .month-title {
+    font-size: 20px;
+  }
+  .day-header {
+    flex-wrap: wrap;
+  }
+  
+  .appointments-header {
+    font-size: 24px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .detail-value {
+    text-align: left;
+  }
+  
+  .detail-about {
+    max-width: 100%;
+  }
+}
