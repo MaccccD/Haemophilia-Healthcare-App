@@ -29,6 +29,16 @@
   padding: 10px;
   font-weight: bold;
 }
+.notifications-List {
+   flex: 1;
+  overflow-y: scroll;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 10px;
+  scrollbar-width:25px;
+  scrollbar-color: #655e5e #072B62;
+  background-color: #103D81;
+}
 .notifications-Text {
   color: #FFEBD7;
   font-size: 20;

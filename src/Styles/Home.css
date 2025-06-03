@@ -56,6 +56,7 @@
   margin-left: 290px;
   gap: 10px;
   margin-top: 5px;
+  height: 100%;
 }
 .messages-Holder {
   background-color: #103D81;
@@ -63,13 +64,14 @@
   justify-content: center;
 }
 .messages-List {
-  flex: 7;
-  overflow-y: auto;
-  display: flex;
+  flex: 1;
+  overflow-y: scroll;
   flex-direction: column;
   gap: 0.5rem;
-  scrollbar-width: thin;
-  scrollbar-color: #888 #103D81;
+  margin-right: 10px;
+  scrollbar-width:25px;
+  scrollbar-color: #655e5e #072B62;
+  background-color: #103D81;
 }
 .messages-Text {
   color: #FFEBD7;
@@ -195,6 +197,16 @@
     align-items: center;
    }
 
+   .messages-List {
+    flex: 1;
+    overflow-y: scroll;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-right: 40px;
+    scrollbar-width:25px;
+    scrollbar-color: #655e5e #072B62;
+    background-color: #103D81;
+    }
    .messages,.appointments {
     width: 90%;
     max-width: 320px;

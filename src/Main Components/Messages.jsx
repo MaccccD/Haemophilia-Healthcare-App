@@ -45,7 +45,7 @@ const messagesHolder = [
               </div>
           )}
           <br/>
-          
+          <div className='messages-List'>
           {messagesHolder.map((msg, index)=>{
             return(
            <button key={msg.id} className='messageBtn' onClick={()=> ViewTxtMessage (index)}>
@@ -54,6 +54,7 @@ const messagesHolder = [
             alt={msg.sender} className='doctor-Image'/>
            </button>
           )})}
+        </div>
       </div>
     </div>
   )

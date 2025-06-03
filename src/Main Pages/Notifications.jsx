@@ -10,10 +10,10 @@ function Notifications() {
     { message: "Reminder: Please don’t forget to take your medication.", time: "12:00 PM" },
     { message: "Reminder: Review Lab Results.", time: "02:30 PM" },
     { message: "Education Hub: The latest update on Hemophilia Stats.", time: "04:45 PM" },
-    {message: "Reminder: Please dont't forget to log your joint health after you come back from jogging."},
-    {message: "Reminder: Check insulin levels."},
-    {message: "Reminder: Review your Blood Pressure Results for more info."},
-    {message: "Reminder: Please don't forget to log your anxiety episode if you had any today."}
+    {message: "Reminder: Please dont't forget to log your joint health after you come back from jogging.", time: "11:45 PM"},
+    {message: "Reminder: Check insulin levels.", time: "04:25 PM"},
+    {message: "Reminder: Review your Blood Pressure Results for more info.", time: "15:58 PM"},
+    {message: "Reminder: Please don't forget to log your anxiety episode if you had any today.", time: "12:30 PM"}
   ];
    const getDateStamp = ()=>{
     const currentDate = new Date();
@@ -31,6 +31,7 @@ function Notifications() {
       <ul className='notif-Container'>
         {notifUpdates.map((update, index)=>{
           return(
+            <div className='notifications-List'>
             <li key={index} className='notifications-Text'>
             <img src= {notifBell} alt= "notification bell" className='bellImage'/>
             <div className='notif-Container'>
@@ -38,6 +39,7 @@ function Notifications() {
                <small className='notifications-Text'>{update.time}</small>
             </div>
           </li>
+          </div>
           )
         })}
       </ul>
