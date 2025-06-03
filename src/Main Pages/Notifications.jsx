@@ -31,7 +31,6 @@ function Notifications() {
       <ul className='notif-Container'>
         {notifUpdates.map((update, index)=>{
           return(
-            <div className='notifications-List'>
             <li key={index} className='notifications-Text'>
             <img src= {notifBell} alt= "notification bell" className='bellImage'/>
             <div className='notif-Container'>
@@ -39,7 +38,6 @@ function Notifications() {
                <small className='notifications-Text'>{update.time}</small>
             </div>
           </li>
-          </div>
           )
         })}
       </ul>
