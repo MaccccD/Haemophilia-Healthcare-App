@@ -74,7 +74,7 @@
   grid-template-columns: repeat(7, 2fr);
   gap: 2px;
   margin-left: 65px;
-  padding: 8px 0;
+  padding: 15px 0;
   background-color: #103d81;
 }
 
@@ -83,15 +83,15 @@
   height: 40px;
   border-radius: 50%;;
   border: none;
-  padding: 5px 0;
+  padding: 0;
   display: flex;
-  align-items: right;
-  justify-content: right;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   background: transparent;
-  color: white;
+  color: #FFEBD7;
   transition: all 0.2s ease;
 }
 .calendar-day:hover:not(.disabled) {
@@ -99,16 +99,21 @@
 }
 
 .calendar-day.disabled {
-  cursor: default;
   color: rgba(255, 255, 255, 0.3);
+  
 }
 
 .calendar-day.has-appointment {
   background: red !important;
+  color: #FFEBD7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calendar-day.selected {
   background: rgba(255, 255, 255, 0.3);
+
 }
 
 .appointment-details {
@@ -116,6 +121,7 @@
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 80px;
+  background-color: #103D81;
 }
 
 .details-title {
@@ -124,29 +130,34 @@
   font-weight: bold;
   margin-bottom: 15px;
   text-align: center;
+  background-color: #103D81;
 }
 
 .details-content {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background-color: #103D81;
 }
 
 .detail-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  background-color: #103D81;
 }
 
 .detail-label {
   color: white;
   font-weight: 600;
   flex-shrink: 0;
+  background-color: #103D81;
 }
 
 .detail-value {
   color: white;
   text-align: right;
+  background-color: #103D81;
 }
 
 .detail-about {
@@ -176,6 +187,7 @@
   position: absolute;
   top: -2px;
   right: 8px;
+  padding: 12px;
   background: red;
   border-radius: 50%;
   width: 18px;
@@ -185,7 +197,7 @@
   justify-content: center;
   font-size: 10px;
   font-weight: bold;
-  color: white;
+  color: #FFEBD7;
 }
 
 @media (max-width: 480px) {

@@ -3,27 +3,27 @@ import React, { useState } from 'react'
 function Appointments() {
   const [appointments , setAppointments] = useState([
     {id: 1,
-      date: "04-July-2025",
+      date: "2025-07-04",
       time: "09h00- 10h00",
       location: "Milpark Hospital",
       about: "Bleeding Data Consultation"
     },
     {
       id: 2,
-      date: "15 July 2025",
+      date: "2025-07-15",
       time:"12h00-13h00",
       location: "Bara Hospital, Msotra",
       about: "Clotting Levels Data Review"
     },
     {
      id: 3,
-     date: "19 July 2025",
+     date: "2025-07-15",
      time: "11h00-12h30",
      location: "N17 Hospital",
      about: "Mental Health Therapy Session"
     },
     {id: 4,
-     date: "25 July 2025",
+     date: "2025-07-25",
      time: "07h30-09h30",
      location: "Parkland Hospital",
      about: "Diabetes Health Results Review"
