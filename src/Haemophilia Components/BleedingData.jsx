@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function BleedingData() {
   //State variables for the different typesof bleeding data :
@@ -12,6 +13,20 @@ function BleedingData() {
   const [treatment, setTreatment] = useState("");
   const [painLevel, setPainLevel] = useState(1);
   const [notes, setNotes] = useState("");
+  const [nextPage, setNextPage] = useState(false);
+  const [orevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/BloodTest");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/HealthMetrics");
+    setPrevPagge(true);
+  }
 
   const handleSave =()=>{
     if (!notes || !intensity || !site || !duration || !trigger || !treatment) {
@@ -95,7 +110,12 @@ function BleedingData() {
 
         <br /><br />
 
-        <button onClick={handleSave} className='nextBtn'>Save Entry</button>
+        <button onClick={handleSave} className='nextBtn'>Save Entry</button><br/><br/>
+
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
+
 
     </div>
   )
