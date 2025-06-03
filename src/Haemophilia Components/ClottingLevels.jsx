@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as d3 from 'd3';
 import LoadingScreen from '../Main Components/LoadingScreen';
 
@@ -12,6 +13,20 @@ function ClottingLevels() {
    const [medications, setMedications] = useState("");
    const [diet, setDiet] = useState("");
    const [loading, setLoading] = useState(true);
+    const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/ClottingLevels");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/BleedingData");
+    setPrevPagge(true);
+  }
 
    const svgRef = useRef();
    
@@ -205,15 +220,19 @@ function ClottingLevels() {
         <option value= "liver disease">Liver Disease</option>
         <option value= "None">None</option>
       </select>
-       <br /><br />
+      <br /><br />
       < label className='content'>5. Please specify which kind of medications you take?</label><br /><br />
       <input type='text' value={medications} placeholder='Medications like blood thinners, red blood cells pills etc.' className='setUp' onChange={(m)=> setMedications(m.target.value)}/>
-       <br /><br />
+      <br /><br />
       <label className='content'>6. Please explain your diet intake :</label><br/><br/>
       <input value={diet} type='text' placeholder='Include foods rich in Vitamin K' className='setUp' onChange={(d)=> setDiet(d.target.value)}/>
       <br />
       <button onClick={renderChart} className='clotting-Chart-Btn'> Generate Clotting Levels Chart </button>
       <svg ref={svgRef}></svg>
+      <br/><br/>
+      <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+      <button onClick={NavigateNextPage} className='nextButton'>Next</button>
     </div>
   );
 };

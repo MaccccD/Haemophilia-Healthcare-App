@@ -9,8 +9,8 @@ function BloodTest() {
   const [tests, setTests] = useState([]);
   const [latestEntry, setLatestEntry]= useState(null);
   const [loading, setLoading] = useState(false); //loading state to let users now data is being fetched
-   const [nextPage, setNextPage] = useState(false);
-  const [orevPage, setPrevPagge] = useState(false);
+  const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
 
   const navigate = useNavigate();
 

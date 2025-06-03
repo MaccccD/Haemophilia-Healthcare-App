@@ -14,7 +14,7 @@ function BleedingData() {
   const [painLevel, setPainLevel] = useState(1);
   const [notes, setNotes] = useState("");
   const [nextPage, setNextPage] = useState(false);
-  const [orevPage, setPrevPagge] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
 
   const navigate = useNavigate();
 

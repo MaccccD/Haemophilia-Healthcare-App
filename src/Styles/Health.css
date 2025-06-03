@@ -60,6 +60,9 @@
 .title-Text {
   background-color: #062d69;
 }
+.title-Text:hover{
+   background-color:#09295a ;
+}
 .health-Text {
   color: #FFEBD7;
   background-color: #103D81;
@@ -87,7 +90,7 @@
   justify-content: center;
 }
 .bleedingData:hover{
-  background-color:#35136F ;
+  background-color:#09295a ;
 }
 .bleeding-Container {
   display: inline-block;
