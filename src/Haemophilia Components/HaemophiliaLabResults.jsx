@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LoadingScreen from '../Main Components/LoadingScreen';
+import { useNavigate } from 'react-router-dom';
 
 function HaemophiliaLabResults() {
 
@@ -8,6 +9,20 @@ function HaemophiliaLabResults() {
   const [loading , setLoading] = useState(true);
   const [results, setResults] = useState([]);
   const storedbleedingLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
+  const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/JointPainTracker");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/ClottingLevels");
+    setPrevPagge(true);
+  }
 
   useEffect(()=>{
     const timerDelay = setTimeout(()=>{
@@ -118,6 +133,10 @@ function HaemophiliaLabResults() {
           </tbody>
         </table>
         )}
+         <br/><br/>
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
     </div>
   );
 }

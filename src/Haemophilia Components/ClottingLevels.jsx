@@ -13,18 +13,18 @@ function ClottingLevels() {
    const [medications, setMedications] = useState("");
    const [diet, setDiet] = useState("");
    const [loading, setLoading] = useState(true);
-    const [nextPage, setNextPage] = useState(false);
-  const [prevPage, setPrevPagge] = useState(false);
+   const [nextPage, setNextPage] = useState(false);
+   const [prevPage, setPrevPagge] = useState(false);
 
   const navigate = useNavigate();
 
   function NavigateNextPage (){
-   navigate("/ClottingLevels");
+   navigate("/HaemophiliaLabResults");
    setNextPage(true);
   }
 
   function GoBack(){
-    navigate("/BleedingData");
+    navigate("/BloodTest");
     setPrevPagge(true);
   }
 

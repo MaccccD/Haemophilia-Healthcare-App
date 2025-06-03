@@ -11,6 +11,7 @@ function BloodTest() {
   const [loading, setLoading] = useState(false); //loading state to let users now data is being fetched
   const [nextPage, setNextPage] = useState(false);
   const [prevPage, setPrevPagge] = useState(false);
+  
 
   const navigate = useNavigate();
 

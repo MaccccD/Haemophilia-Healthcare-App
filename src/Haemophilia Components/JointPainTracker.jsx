@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import LoadingScreen from '../Main Components/LoadingScreen';
+import { useNavigate } from 'react-router-dom';
 
 function JointPainTracker() {
   const [selectedTimeframe, setSelectedTimeframe] = useState("today");
@@ -13,6 +14,20 @@ function JointPainTracker() {
   const [painData, setPainData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/HealthMetrics");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/HaemophiliaLabResults");
+    setPrevPagge(true);
+  }
 
 
   useEffect(()=>{
@@ -181,6 +196,11 @@ function JointPainTracker() {
       ): (
      <p className='content'>Not enough data to show trend. Add another entry first !!</p>
       )}
+      <br/><br/>
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Health Metrics</button>
+      
     </div>
   )
 }
