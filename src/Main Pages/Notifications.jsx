@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import notifBell from "../Images/Notif Bell.png";
 
 function Notifications() {
 
@@ -8,7 +9,11 @@ function Notifications() {
     { message: "Reminder: Update Clotting Levels.", time: "10:15 AM" },
     { message: "Reminder: Please don’t forget to take your medication.", time: "12:00 PM" },
     { message: "Reminder: Review Lab Results.", time: "02:30 PM" },
-    { message: "Education Hub: The latest update on Hemophilia Stats.", time: "04:45 PM" }
+    { message: "Education Hub: The latest update on Hemophilia Stats.", time: "04:45 PM" },
+    {message: "Reminder: Please dont't forget to log your joint health after you come back from jogging."},
+    {message: "Reminder: Check insulin levels."},
+    {message: "Reminder: Review your Blood Pressure Results for more info."},
+    {message: "Reminder: Please don't forget to log your anxiety episode if you had any today."}
   ];
    const getDateStamp = ()=>{
     const currentDate = new Date();
@@ -20,24 +25,23 @@ function Notifications() {
    }
   return (
     <div className='notifications-Container'>
-      <h1 className='heading'>Notification  Updates:</h1>
-      <p className='content'> On Today's Reminders: {getDateStamp()}</p>
-      <ul className='NotifContainer'>
+      <div className='notifications-Holder'>
+      <h1 className='notif-Heading'>Notification  Updates:</h1>
+      <p className='reminders-Text'> On Today's Reminders: {getDateStamp()}</p>
+      <ul className='notif-Container'>
         {notifUpdates.map((update, index)=>{
           return(
-            <li key={index} className='content'>
-            <span role='image' aria-label='notification bell'>🔔</span>
-            <div>
-               <div>{update.message}</div>
-               <small className='content'>{update.time}</small>
+            <li key={index} className='notifications-Text'>
+            <img src= {notifBell} alt= "notification bell" className='bellImage'/>
+            <div className='notif-Container'>
+               <div className='notifications-Text'>{update.message}</div>
+               <small className='notifications-Text'>{update.time}</small>
             </div>
-           
-
           </li>
           )
         })}
       </ul>
-
+     </div>
     </div>
   )
 }

@@ -45,6 +45,7 @@ const messagesHolder = [
               </div>
           )}
           <br/>
+          
           {messagesHolder.map((msg, index)=>{
             return(
            <button key={msg.id} className='messageBtn' onClick={()=> ViewTxtMessage (index)}>

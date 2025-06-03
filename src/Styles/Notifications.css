@@ -6,6 +6,40 @@
   gap: 20px;
   color: #FFEBD7;
 }
+.notif-Heading {
+  color: #FFEBD7;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 25;
+  margin: 5px;
+  font-weight: bolder;
+  background-color: #103D81;
+  margin-bottom: 20px;
+}
+.notifications-Holder {
+  background-color: #103D81;
+  border-radius: 20px;
+  justify-content: center;
+}
+.reminders-Text {
+  color: #FFEBD7;
+  background-color: #103D81;
+  font-size: 20px;
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+}
+.notifications-Text {
+  color: #FFEBD7;
+  font-size: 20;
+  background-color: #103D81;
+}
+.bellImage {
+  background-color: #103D81;
+}
+.notif-Container {
+  background-color: #103D81;
+}
 @media screen  and (max-width: 768px) {
    .notifications-Container {
     margin-left: 0;
