@@ -19,7 +19,7 @@ const username = JSON.parse(localStorage.getItem("userDetails")) || { fullNames:
 
 const messagesHolder = [
     { id: 1, sender: "Dr Edwards", time: "just now", message: `Dear ${username.fullNames}, your blood test results have been posted by Dr Edwards.`, image: docImage1},
-    { id: 2, sender: "Dr Baker", time: "just now", message: `Dear ${username.fullNames}, Dr Baker needs your clotting levels logged in.`, image: docImage2},
+    { id: 2, sender: "Dr Baker", time: "15 Mins Agp", message: `Dear ${username.fullNames}, Dr Baker needs your clotting levels logged in.`, image: docImage2},
     { id: 3, sender: "Dr Mathews", time: "yesterday", message: `Dear ${username.fullNames}, please schedule a follow-up appointment.`, image: docImage3 },
     { id: 4, sender: "Dr Mhlongo", time: "2 days ago", message: `Dear ${username.fullNames}, please ensure that your bleeding data.`, image: docImage4 },
     { id: 5, sender: "Dr Zwide", time: "3 days ago", message: `Dear ${username.fullNames}, please advise when you want to come through.`, image: docImage5 },
@@ -37,7 +37,7 @@ const messagesHolder = [
   return (
     <div className='messages-Container'>
       <div className='messages-Holder'>
-          <p className='messages-Text'>Messages</p>
+          <p className='messages-Text'> Messages</p>
           <br/>
              {messageText && (
             <div className='selectedMessage'>

@@ -9,12 +9,36 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  background-color:#103D81;
+  opacity: 80%;
+}
+.prevBtn {
+  background-color: #103D81;
+   color: #FFEBD7;
+   border-radius: 25px;
+   width: 100px;
+   height: 50px;
+   border: none;
+   opacity: 100;
+   cursor: pointer;
+}
+.nextButton {
+   background-color: #103D81;
+   color: #FFEBD7;
+   float: inline-end;
+   border-radius: 25px;
+   width: 100px;
+   height: 50px;
+   border: none;
+   opacity: 100;
+   cursor: pointer;
 }
 .bleedingData {
   align-items: center;
-   display: flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #062d69;
   color: #FFEBD7;
   border-radius: 25px;
   width: 120px;
@@ -24,14 +48,43 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 15px;
-  opacity: 100;
 }
 .metric-Image {
   width: 100px;
-  height: 100px;
+  background-color: #062d69;
+  height: 80px;
   margin-bottom: 5px;
   border: white;
   border-radius: 20px;
+}
+.title-Text {
+  background-color: #062d69;
+}
+.health-Text {
+  color: #FFEBD7;
+  background-color: #103D81;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.search {
+  color: #FFEBD7;
+  background-color: #062d69;
+  border: 2px solid #072B62;
+  width: 195px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+}
+.unavailable-Text {
+  color: #FFEBD7;
+  font-size: 15;
+}
+.health-Card {
+  background-color: #103D81;
+  border-radius: 15px;
+  justify-content: center;
 }
 .bleedingData:hover{
   background-color:#35136F ;

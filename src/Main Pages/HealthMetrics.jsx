@@ -60,7 +60,7 @@ function HealthMetrics() {
     ],
     
     "Hypertension" : [
-      {name: "High Blood pressure levels", route: "/HighBloodPressure", image: BloodPressureIcon},
+      {name: "High Blood P. levels", route: "/HighBloodPressure", image: BloodPressureIcon},
       {name: "BP Results", route: "/BPResults", image: TestsResultsIcon}
     ],
   
@@ -95,7 +95,7 @@ function HealthMetrics() {
         >
           <img src= {page.image}
            alt={page.name} className='metric-Image'/>
-           <span>{page.name}</span>
+           <span className='title-Text'>{page.name}</span>
         </button>
       ))
   );
@@ -104,16 +104,18 @@ function HealthMetrics() {
  
   return (
     <div className='health-Container'>
-      <h1 className='heading'>All things about your health:</h1>
+      <div className='health-Card'>
+      <h1 className='health-Text'>Health Metrics:</h1>
        <input type='search' placeholder='Search...' className='search' onChange={HandleSearch}/>
        {selectedConditions.length > 0 && renderButtons().length > 0 ? (
         <div className='buttonsWrapper'>
           {renderButtons()}
         </div>
       ) : (
-        <p className='content'>No health metrics available for your current conditions.</p>
+        <p className='unavailable-Text'>No health metrics available for your current conditions.</p>
       )}
-       </div>
+      </div>
+      </div>
   )
 }
 

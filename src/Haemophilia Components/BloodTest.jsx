@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import LoadingScreen from '../Main Components/LoadingScreen';
+import { useNavigate } from 'react-router-dom';
 
 
 function BloodTest() {
@@ -8,6 +9,20 @@ function BloodTest() {
   const [tests, setTests] = useState([]);
   const [latestEntry, setLatestEntry]= useState(null);
   const [loading, setLoading] = useState(false); //loading state to let users now data is being fetched
+   const [nextPage, setNextPage] = useState(false);
+  const [orevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/ClottingLevels");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/BleedingData");
+    setPrevPagge(true);
+  }
     //so when the component mounts; it retrieves what was the stored bleed count from the bleeding data that was logged in and saved already
   useEffect(()=>{
     const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
@@ -108,6 +123,11 @@ function BloodTest() {
           </tbody>
         </table>
       )}
+      <br/><br/>
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
+
     </div>
   )
 }

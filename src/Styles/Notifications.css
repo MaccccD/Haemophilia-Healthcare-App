@@ -20,11 +20,12 @@
   background-color: #103D81;
   border-radius: 20px;
   justify-content: center;
+  opacity: 80%;
 }
 .reminders-Text {
   color: #FFEBD7;
   background-color: #103D81;
-  font-size: 20px;
+  font-size: 23px;
   text-align: left;
   padding: 10px;
   font-weight: bold;
