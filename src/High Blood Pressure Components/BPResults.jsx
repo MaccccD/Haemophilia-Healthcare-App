@@ -8,7 +8,7 @@ function BPResults() {
   const storedbloodPressureLogs = JSON.parse(localStorage.getItem("bloodPressureLogs") || "[]");
   const [latestDietEntry, setLatestDietEntry] = useState(null);
   const [latestPhysicalAct, setLatestPhysicalAct] = useState(null);
-  const[latestAlcoholConsume, setLatestAlcoholConsume] = useState(null);
+  const [latestAlcoholConsume, setLatestAlcoholConsume] = useState(null);
   const [latestSmokerEntry, setLatestSmokerEntry] = useState(null);
   const [latestStressEntry, setLatestStressEntry] = useState(null);
   const [latestWeightEntry, setLatestWeightEntry] = useState(null);
