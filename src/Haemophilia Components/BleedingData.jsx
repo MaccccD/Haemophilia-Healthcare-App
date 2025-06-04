@@ -51,7 +51,7 @@ function BleedingData() {
     const updatedLogs = [...existingLogs, bleedingLog];
     localStorage.setItem("bleedingLogs", JSON.stringify(updatedLogs));
 
-    alert("Bleeding episode Logged!");
+    alert("Bleeding episode logged successfully");
     //clear all the field(s) after each bleeding episode entry:
     setBleedingCount("");
     setIntensity("");

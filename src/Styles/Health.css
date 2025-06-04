@@ -325,6 +325,24 @@ input:checked + .slider::before{
 .summary{
   margin: 20px;
 }
+.risk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.risk-table th,
+.risk-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+.risk-table thead {
+  background-color: #062d69;
+}
+.risk-table tfoot {
+  background-color: #062d69;
+}
  @media screen and (max-width: 768px) {
   .health-Container,
   .bleeding-Container,

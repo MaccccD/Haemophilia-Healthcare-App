@@ -82,7 +82,7 @@ function ClottingLevels() {
           alert("Please log in the factors that affect clotting levels to be able to generate a clotting levels chart");
           return
         }
-        alert("Clotting factors have been logged in!")
+        alert("Clotting factors have been logged successfully!")
         setGenetics("");
         setMedicalCondition("");
         setMedications("");

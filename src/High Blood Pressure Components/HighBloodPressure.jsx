@@ -9,7 +9,7 @@ function HighBloodPressure() {
   const [alcoholConsumption, setAlcoholConsumption] = useState();
   const [stressLevels, setStressLevels] = useState(0);
   const [weight, setWeight] = useState(0);
-
+  const [smokerOptions, setSmokerOptions] = useState([]);
   const [nextPage, setNextPage] = useState(false);
   const [prevPage, setPrevPagge] = useState(false);
 
@@ -30,6 +30,12 @@ function HighBloodPressure() {
     alert("Please complete all fields in the entry to submit to the doctor!");
     return;
   }
+  alert ("High Blood Pressure Entry logged successfully");
+  setDiet("");
+  setPhysicalActivity("");
+  setAlcoholConsumption("");
+  setStressLevels("");
+  setWeight("");
  }
 
   const dietOptions = [
@@ -69,7 +75,23 @@ function HighBloodPressure() {
     "None"
 
   ]
-   const [smokerOptions, setSmokerOptions] = useState([]);
+
+
+
+  const bloodPressureLogs =
+    {
+      diet,
+      phsyicalActivity,
+      alcoholConsumption,
+      stressLevels,
+      weight,
+      smokerOptions
+
+    }
+   const existingLogs = JSON.parse(localStorage.getItem("bloodPressureLogs")) || [];
+    const updatedLogs = [...existingLogs, bloodPressureLogs];
+    localStorage.setItem("bloodPressureLogs", JSON.stringify(updatedLogs));
+  
 
   const handleCheckboxChange = (smoker) =>{
  if(smokerOptions.includes(smoker)){
@@ -138,7 +160,7 @@ function HighBloodPressure() {
        </div>
        <br/> 
        <label className=' content'>5. Please indicate your stress levels:</label><br/><br/>
-       <input type='range' placeholder='stress Indicator' value={stressLevels} onChange={(s)=> setStressLevels(s.target.value)}/>
+       <input type='range' className='setUp' placeholder='stress Indicator' value={stressLevels} onChange={(s)=> setStressLevels(s.target.value)}/>
        <br/>
        <p className='content'>Stress Level: {stressLevels}</p>
 

@@ -104,14 +104,14 @@ function JointPainTracker() {
       setFilledFields(true);
       return;
     };
-    alert("All fields have been logged sucessfully");
+    alert("All fields have been logged successfully");
     setSelectedTimeframe("");
     setCustomDate("");
     setAffectedJoints("");
     setPainSeverity("");
     setSwelling("");
     setMobility("");
-    
+
     const jointPainLog = {
     date: getFinalDate(),
     jointsAffected,
