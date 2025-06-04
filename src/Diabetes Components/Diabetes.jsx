@@ -57,7 +57,6 @@ useEffect(()=>{
       }
 
        alert("Diabetes Data episode Logged!");
-       setDiabetesType("");
        setCarbsIntake("");
        setInsulinDose("");
        setInsulinType("");

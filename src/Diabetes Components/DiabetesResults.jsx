@@ -16,8 +16,8 @@ const DiabetesType = localStorage.getItem("DiabetesType");
     {
       id: "PT001",
       name: username.fullNames,
-      age: storedAge,
-      diabetesType: DiabetesType,
+      age: storedAge || "N/A",
+      diabetesType: DiabetesType || "Uknown",
       diagnosisDate: "2025-06-04",
       lastCheckup: "2025-05-31",
       bloodSugar: {

@@ -83,7 +83,6 @@ function ClottingLevels() {
           return
         }
         alert("Clotting factors have been logged in!")
-        setAge("");
         setGenetics("");
         setMedicalCondition("");
         setMedications("");
