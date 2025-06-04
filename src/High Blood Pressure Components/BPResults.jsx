@@ -12,6 +12,7 @@ function BPResults() {
   const [latestSmokerEntry, setLatestSmokerEntry] = useState(null);
   const [latestStressEntry, setLatestStressEntry] = useState(null);
   const [latestWeightEntry, setLatestWeightEntry] = useState(null);
+  const [showRiskTable, setShowRiskTable] = useState(false);
   const [loading, setLoading] = useState(true);
   const [nextPage, setNextPage] = useState(false);
   const [prevPage, setPrevPagge] = useState(false);
@@ -110,7 +111,8 @@ function BPResults() {
     <div className='bloodPressureResults-Container'>
       <h1 className='subheading'>High Blood Pressure Risk Scoring System</h1>
       <p className='content'>Here are your blood pressure risk scores based on the data logged in the bigh blood pressure section:</p>
-       <button onClick={BloodPressureRiskLevelResults} className='haemophiliaResults-Btn'>Show Risk System</button> 
+       <button onClick={BloodPressureRiskLevelResults} className='haemophiliaResults-Btn'>Show Risk System</button>
+       
       <table className='risk-table'>
         <thead>
           <tr>
