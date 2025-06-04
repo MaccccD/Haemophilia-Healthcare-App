@@ -56,12 +56,12 @@ function HealthMetrics() {
     
      "Sugar Diabetic": [
       {name: "Diabetes Levels", route: "/Diabetes", image: DiabetesIcon},
-      {name: "Diabetes Lab Results", route: "/DiabetesResults", image: TestsResultsIcon}  
+      {name: "Diabetes Medication", route: "/DiabetesResults", image: TestsResultsIcon}  
     ],
     
     "Hypertension" : [
       {name: "High Blood P. levels", route: "/HighBloodPressure", image: BloodPressureIcon},
-      {name: "BP Results", route: "/BPResults", image: TestsResultsIcon}
+      {name: "BP Records", route: "/BPResults", image: TestsResultsIcon}
     ],
   
      "PTSD": [

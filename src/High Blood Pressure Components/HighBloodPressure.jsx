@@ -1,19 +1,49 @@
 import { index } from 'd3';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function HighBloodPressure() {
 
   const [diet, setDiet] = useState([]);
   const [phsyicalActivity, setPhysicalActivity] = useState("");
   const [alcoholConsumption, setAlcoholConsumption] = useState();
-  const [stressLevels, setStressLevels] = useState("");
+  const [stressLevels, setStressLevels] = useState(0);
   const [weight, setWeight] = useState(0);
- 
+
+  const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/Anxiety");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/Diabetes");
+    setPrevPagge(true);
+  }
+
+ const handleSave = () =>{
+  if(!diet || !phsyicalActivity || !alcoholConsumption || !stressLevels ||!weight){
+    alert("Please complete all fields in the entry to submit to the doctor!");
+    return;
+  }
+ }
 
   const dietOptions = [
-    "Exessive Salt Intake",
-    " High Saturated Fats & trans fats",
-    "Low Intake OF Fruits & vegetables",
+ "High Saturated Fat Intake (e.g. fatty meats, butter)",
+  "High Trans Fat Intake (e.g. fried snacks, baked goods)",
+  "Low Fruit and Vegetable Intake",
+  "High Sugar Intake (e.g. soda, sweets)",
+  "Whole Grain Consumption",
+  "Low-Fat Dairy Products",
+  "Lean Protein Intake (e.g. chicken, fish, legumes)",
+  "Reduced Red Meat Consumption",
+  "Limiting Processed Foods",
+  "Drinking Plenty of Water",
+
   ]
 
   const alcoholOptions = [
@@ -106,6 +136,24 @@ function HighBloodPressure() {
           )}
         </ul>
        </div>
+       <br/> 
+       <label className=' content'>5. Please indicate your stress levels:</label><br/><br/>
+       <input type='range' placeholder='stress Indicator' value={stressLevels} onChange={(s)=> setStressLevels(s.target.value)}/>
+       <br/>
+       <p className='content'>Stress Level: {stressLevels}</p>
+
+       <br/>
+       <label className='content'> 6. How much do you weigh ?</label><br/><br/>
+       <input type='number' className='setUp' placeholder='Weight in KG' value={weight} onChange={(w)=> setWeight(w.target.value)}/>
+       <br/><br/>
+       <button onClick={handleSave} className='nextBtn'> Save Entry</button>
+       <br/><br/>
+
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
+      
+
     </div>
   )
 }

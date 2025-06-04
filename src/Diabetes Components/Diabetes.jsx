@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Diabetes() {
   const [diabetesType, setDiabetesType] = useState("");
@@ -9,6 +10,21 @@ function Diabetes() {
   const [carbsIntake, setCarbsIntake] = useState(0);
   const [mood, setMood] = useState("");
   const [phsyicalActivity, setPhysicalActvity] = useState("");
+  const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/HighBloodPressure");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/HaemophiliaLabResults");
+    setPrevPagge(true);
+  }
+
 
     const symptomsOptions = [
        "Dizziness", 
@@ -22,7 +38,7 @@ function Diabetes() {
 
     const handleCheckboxchange = (symptom) =>{
        if(selectedSymptoms.includes(symptom)){
-        setSelectedSymptoms(selectedSymptoms.filter(item => item !== symptom)); // ensuring that after a symptom has sbeen checked , it get filtered out so only the options that have ben checked remain.
+        setSelectedSymptoms(selectedSymptoms.filter(item => item !== symptom)); // ensuring that after a symptom has been checked , it get filtered out so only the options that have ben checked remain.
        }
        else{
         setSelectedSymptoms([...selectedSymptoms, symptom]) // adding the checked symptom onto the array state using the sperad operator.
@@ -31,7 +47,7 @@ function Diabetes() {
 
     const saveInfo = () =>{
       if(!diabetesType || !glucoseLevel || !!insulinDose || !insulinType || !waterIntake || !carbsIntake || !mood || !phsyicalActivity){
-        alert("Please ensure evry field is correclty");
+        alert("Please ensure every field is filled in before submitting");
         return;
       }
     }
@@ -120,12 +136,12 @@ function Diabetes() {
 
       <label className='content'>8. Physical Activity completed today?</label><br/><br/>
       <input type='text' placeholder='Walking, Running, etc.' className='setUp' value={phsyicalActivity} onChange={(p)=> setPhysicalActvity(p.target.value)}/>
+       <br/><br/>
+       <button onClick={saveInfo} className='nextBtn'>Save Entry</button>      
+       <br/><br/>
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
 
-
-      
-
-
-
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
 
       </div>
   
