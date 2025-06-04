@@ -5,9 +5,8 @@ function Anxiety() {
   const [mood, setMood] = useState("");
   const [anxietyAttacks, setAnxietyAttacks] = useState("");
   const [stressTypes, setStressTypes] = useState([]);
-  const [traumas, setTraumas] = useState([]);
-  const [personalityTrait, setPersonalityTrait] = useState("");
-  const [selectedSymptoms, setSelectedSymptoms ] = useState([]);
+  const [traumas, setTraumas] = useState("");
+  const [societalPressure, setSocietalPressure] = useState("");
 
 
 
@@ -24,7 +23,23 @@ const typesofStress = [
   "Acute stress",
   "Episodic Acute Stress",
   "Chronic Stress",
-  "Physical Stress"
+  "Physical Stress",
+  "post-traumatic stress disorder"
+]
+
+const exmaplesofTraumas = [
+  "childhood trauma",
+  "Acts of Violence",
+  "Accidents",
+  "medical Events"
+]
+
+const exmaplesofSocietyPressures = [
+  "Social Media validation",
+  "Body dysmorphia",
+  "Substance Abuse Peer Pressure",
+  "Materilaistic Validation"
+
 ]
 
  const handleCheckboxChange = (stresses) =>{
@@ -34,7 +49,9 @@ const typesofStress = [
  else{
   setStressTypes([... stressTypes, stresses])
  }
-   }
+  }
+
+
 
 
 
@@ -47,7 +64,7 @@ const typesofStress = [
   
     <label className='content'>1. Current mood?</label><br/><br/>
       <select value={mood} className='setUp' onChange={(m)=> setMood(m.target.value)}>
-        <option value="">Select Mood</option>
+        <option value="">Select Current Mood...</option>
         <option value="Tired">Tired</option>
         <option value="Energetic">Energetic</option>
         <option value="Sad">Sad</option>
@@ -77,7 +94,7 @@ const typesofStress = [
       })}
 
        <div className='summary'>
-        <p className='content'> Your selected option:</p>  
+        <p className='content'> Your selected option(s):</p>  
         <ul >
           {stressTypes.length > 0 ? (
           stressTypes.map((stress, index)=> <li key={index} className='emphasized-Text'>{stress}</li>)
@@ -86,6 +103,28 @@ const typesofStress = [
           )}
         </ul>
        </div> 
+       <br/>
+
+       <label className='content' > 3. Please select the type of trauma you have recently experienced</label><br/><br/>
+       <select className='setUp' value={traumas} onChange={(m)=> setTraumas(m.target.value)}>
+        <option value= "">Select Option ...</option>
+        {exmaplesofTraumas.map((trauma, index)=>{
+          <option key={index} value={trauma}>{trauma}</option>
+        })}
+       </select>
+       <br/><br/>
+
+       <label className='content'>4. What form of societal pressure have you experienced the most ? </label><br/><br/>
+       <select className='setUp' value={societalPressure} onChange={(s)=> setSocietalPressure(s.target.value)}>
+        <option value=""> Select Option ...</option>
+        {exmaplesofSocietyPressures.map((pressure, index)=>{
+          <option key={index} value={pressure}>{pressure}</option>
+        })}
+       </select>
+
+       
+
+
     </div>
 
 

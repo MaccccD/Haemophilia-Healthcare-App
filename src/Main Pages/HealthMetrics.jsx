@@ -63,11 +63,6 @@ function HealthMetrics() {
       {name: "High Blood P. levels", route: "/HighBloodPressure", image: BloodPressureIcon},
       {name: "BP Records", route: "/BPResults", image: TestsResultsIcon}
     ],
-  
-     "PTSD": [
-      {name: "PTSD", route: "/PTSD", image:ptsdIcon}
-    ],
-
      "Anxiety": [
       {name: "Anxiety", route: "/Anxiety", image: anxietyIcon}
     ],
