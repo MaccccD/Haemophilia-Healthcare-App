@@ -212,7 +212,7 @@ nav {
    .notification-badge {
     position: absolute;
     top: 40px;
-    right: 75px;
+    right: 130px;
     background-color: red;
     color: #FFEBD7;
     border-radius: 50%;
@@ -227,7 +227,7 @@ nav {
    .appointment-badge {
     position: absolute;
     bottom: 20px;
-    right: 75px;
+    right: 130px;
     background-color: red;
     color: #FFEBD7;
     border-radius: 50%;
