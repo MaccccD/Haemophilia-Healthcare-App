@@ -1,3 +1,4 @@
+import { index } from 'd3';
 import React, { useState } from 'react'
 
 function HighBloodPressure() {
@@ -5,7 +6,6 @@ function HighBloodPressure() {
   const [diet, setDiet] = useState([]);
   const [phsyicalActivity, setPhysicalActivity] = useState("");
   const [alcoholConsumption, setAlcoholConsumption] = useState();
-  const [tobaccoUse, setTobbacoUse] = useState("");
   const [stressLevels, setStressLevels] = useState("");
   const [weight, setWeight] = useState(0);
  
@@ -16,6 +16,39 @@ function HighBloodPressure() {
     "Low Intake OF Fruits & vegetables",
   ]
 
+  const alcoholOptions = [
+    "None",
+    "Occasional Drinker",
+    "Heavy drinker",
+  ]
+
+
+  const physicalActOptions = [
+    "Running",
+    "Walking",
+    "Gym",
+    "Yoga",
+    "Pilates",
+    "None"
+  ]
+
+  const typeofSmoker = [
+    "Cigarette Smoker",
+    "Vaper ",
+    "Weed smoker ",
+    "None"
+
+  ]
+   const [smokerOptions, setSmokerOptions] = useState([]);
+
+  const handleCheckboxChange = (smoker) =>{
+ if(smokerOptions.includes(smoker)){
+  setSmokerOptions(smokerOptions.filter(item => item !== smoker))
+ }
+ else{
+  setSmokerOptions([... smokerOptions, smoker])
+ }
+   }
 
   return (
     <div className='bloodPressure-Container'>
@@ -24,12 +57,55 @@ function HighBloodPressure() {
 
 
       <label className='content'>1. Please select your diet Intake ?</label><br/><br/>
-     <select value={diet} className='setUp' onChange={(t)=>setDiet(t.target.value)}>
-      <option value= "">Diabetes Options: </option>
-      <option value= "Type 1">Type 1</option>
-      <option value="Type 2">Type 2</option>
+       <select value={diet} className='setUp' onChange={(d)=> setDiet(d.target.value)}>
+    <option value= "">Select Diet option ...</option>
+  {dietOptions.map((option, index) => (
+    <option key={index} value={option}>{option}</option>
+  ))}
+  </select>
+     <br/><br/>
+
+     <label className='content'>2. Please indicate  your alcohol consumption , (if any) :</label><br/><br/>
+     <select value={alcoholConsumption} className='setUp' onChange={(a)=> setAlcoholConsumption(a.target.value)}>
+      <option value= "">Select Option ...</option>
+      {alcoholOptions.map((alcohol, index) =>(
+        <option key={index} value={alcohol}>{alcohol}</option>
+      ))}
      </select>
      <br/><br/>
+
+     <label className='content'>3. Types of physical activities you engage in :</label><br/><br/>
+     <select value={phsyicalActivity} className='setUp' onChange={(p)=> setPhysicalActivity(p.target.value)}>
+      <option value= "">Select Option ...</option>
+      {physicalActOptions.map((option, index)=>(
+        <option key={index} value={option}>{option}</option>
+     )) }
+     </select>
+     <br/><br/>
+
+     <label className='content'>4. Type of Smoker (if any)</label><br/><br/>
+      {typeofSmoker.map((smoker, index)=>{
+        return (
+        <label key={index} className='emphasized-Text'>
+          <input type='checkbox'
+          value={smoker}
+          checked = {smokerOptions.includes(smoker)}
+          onChange={()=> handleCheckboxChange(smoker)}/>
+          {smoker}
+        </label>
+        )
+      })}
+
+       <div className='summary'>
+        <p className='content'> Your selected option:</p>  
+        <ul >
+          {smokerOptions.length > 0 ? (
+            smokerOptions.map((smoker, index)=> <li key={index} className='emphasized-Text'>{smoker}</li>)
+          ) : (
+            <li className='content'>No smoking option selected</li>
+          )}
+        </ul>
+       </div>
     </div>
   )
 }
