@@ -84,7 +84,8 @@ function Depression() {
 
     const handleSave = () =>{
     if(!depressionSymptoms || !surroundingsSymptoms| !personalityTraits || !copingMechanism || !supportStructure){
-      alert("Please fill in all the fields before saving the entry")
+      alert("Please fill in all the fields before saving the entry");
+      return
     }
 
     alert("Depression  Episode logged in successfully");
@@ -170,7 +171,9 @@ function Depression() {
        <select className='setUp' value={copingMechanism} onChange={(c)=> setCopingMechanism(c.target.value)}>
         <option value=""> Select Option ...</option>
         {examplesofCopingMechanism.map((cope, index)=>{
-          <option key={index} value={cope}>{cope}</option>
+          return (
+           <option key={index} value={cope}>{cope}</option>
+          )
         })}
        </select>
        <br/><br/>

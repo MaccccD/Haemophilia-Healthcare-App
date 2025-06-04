@@ -25,7 +25,6 @@ import BPResults from "./High Blood Pressure Components/BPResults";
 import HighBloodPressure from "./High Blood Pressure Components/HighBloodPressure";
 import Anxiety from "./Mental Health Components/Anxiety";
 import Depression from "./Mental Health Components/Depression";
-import MentalHealthResults from "./Mental Health Components/MentalHealthResults";
 import Login from "./Main Pages/Login";
 import AuthContextProvider from "./Context/AuthContext";
 import Appointments from "./Main Components/Appointments";
@@ -69,7 +68,6 @@ function App() {
         <Route path="/BPResults" element = {<ProtectedRoute><BPResults/><NavBar/></ProtectedRoute>}/>
         <Route path="/Anxiety" element = {<ProtectedRoute><Anxiety/><NavBar/></ProtectedRoute>}/>
         <Route path="/Depression" element = {<ProtectedRoute><Depression/><NavBar/></ProtectedRoute>}/>
-        <Route path="/MentalHealth" element = {<ProtectedRoute><MentalHealthResults/><NavBar/></ProtectedRoute>}/>
         <Route path="/Login" element = {<Login/>}/>
         <Route path="/Messages" element = {<ProtectedRoute><Messages/><NavBar/></ProtectedRoute>}/>
         <Route path="/Appointments" element = {<ProtectedRoute><Appointments/><NavBar/></ProtectedRoute>}/>

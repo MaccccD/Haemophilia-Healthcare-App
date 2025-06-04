@@ -301,7 +301,7 @@ function BPResults() {
 
       {storedbloodPressureLogs.length === 0 && (
         <div className='pressureUnavailable'>
-          <p>No blood pressure data found. Please log your data in the High Blood Pressure section first.</p>
+          <p className='content'>No blood pressure data found. Please log your data in the High Blood Pressure section first.</p>
         </div>
       )}
 

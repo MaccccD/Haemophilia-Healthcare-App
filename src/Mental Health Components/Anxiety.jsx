@@ -68,7 +68,8 @@ const exmaplesofSocietyPressures = [
   }
   const handleSave = () =>{
     if(!mood || !anxietyAttacks| !stressTypes || !traumas || !societalPressure){
-      alert("Please fill in all the fields before saving the entry")
+      alert("Please fill in all the fields before saving the entry");
+      return;
     }
 
     alert("Anxiety Episode logged in successfully");
@@ -138,7 +139,10 @@ const exmaplesofSocietyPressures = [
        <select className='setUp' value={traumas} onChange={(m)=> setTraumas(m.target.value)}>
         <option value= "">Select Option ...</option>
         {exmaplesofTraumas.map((trauma, index)=>{
+          return (
           <option key={index} value={trauma}>{trauma}</option>
+          )
+          
         })}
        </select>
        <br/><br/>
@@ -147,7 +151,10 @@ const exmaplesofSocietyPressures = [
        <select className='setUp' value={societalPressure} onChange={(s)=> setSocietalPressure(s.target.value)}>
         <option value=""> Select Option ...</option>
         {exmaplesofSocietyPressures.map((pressure, index)=>{
+          return (
           <option key={index} value={pressure}>{pressure}</option>
+          )
+         
         })}
        </select>
         <br/><br/>

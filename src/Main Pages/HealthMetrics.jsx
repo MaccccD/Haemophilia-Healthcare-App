@@ -70,10 +70,6 @@ function HealthMetrics() {
      "Depression": [
       {name: "Depression", route: "/Depression", image: depressionIcon}
     ],
-
-     "Generic'Other'": [
-      {name: "Mental Health Results", route: "/MentalHealthResults", image: MentalHealthIcon}
-    ]
   };
   //The relevant health condition btns based on what health conditions was selcted and saved to the local storage
     const renderButtons = () => {
