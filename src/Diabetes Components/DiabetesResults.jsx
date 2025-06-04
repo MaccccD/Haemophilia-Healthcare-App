@@ -57,14 +57,14 @@ function DiabetesResults() {
       case 'excellent':
         case 'good':
           return "#22c55e";// green
-        case 'slighlty high':
+        case 'slighy high':
           case 'needs improvement':
             return '#f59e0b';//amber
             case'high':
             case 'need attention':
               return '#ef4444'; //red
             default:
-              return '#6b7280';
+              return '#grey';
     }
   };
 
@@ -98,16 +98,14 @@ function DiabetesResults() {
                 
                 <p className='content'>
                   <strong> Current Blood Sugar:</strong> {patient.bloodSugar.current} mg/dL 
-                  <span>
-                    {getStatusColor(patient.bloodSugar.status)}
-                  </span>
+                  <br/><br/>
+                  <span>Status : {patient.bloodSugar.status}</span>
                 </p>
                 
                 <p className='content'>
                   <strong> HbA1c Level:</strong> {patient.hba1c.current}% 
-                  <span>
-                    {getStatusColor(patient.hba1c.status)}
-                  </span>
+                  <br/><br/>
+                  <span> Status : {patient.hba1c.status}</span>
                 </p>
                 
                 <p className='content'>
