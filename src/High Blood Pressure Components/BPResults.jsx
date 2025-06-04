@@ -218,7 +218,7 @@ function BPResults() {
     let riskLevel, riskColor;
     if (score <= 1) {
       riskLevel = "Low Risk";
-      riskColor = "green";
+      riskColor = "#00FF00";
     } else if (score <= 4) {
       riskLevel = "Moderate Risk";
       riskColor = "orange";
