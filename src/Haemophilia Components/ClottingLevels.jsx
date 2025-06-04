@@ -6,7 +6,7 @@ import LoadingScreen from '../Main Components/LoadingScreen';
 function ClottingLevels() {
    //factors affecting clotting levels:
    const [latestBloodClot, setLatestBloodClot]= useState(null);
-   const [age, setAge] = useState(0);
+   const [age, setAge] = useState();
    const [sex, setSex] = useState("");
    const [genetics, setGenetics] = useState("");
    const [medicalCondition, setMedicalCondition] = useState("");
@@ -36,6 +36,7 @@ function ClottingLevels() {
      useEffect(()=>{
       const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
       localStorage.setItem("age", age); //saving the age bc I'm gonna reu-use this value to for other health issues 
+      console.log(age);
       const timerDelay = setTimeout(()=>{
         setLoading(false);
        }, 2000)
@@ -81,6 +82,13 @@ function ClottingLevels() {
           alert("Please log in the factors that affect clotting levels to be able to generate a clotting levels chart");
           return
         }
+        alert("Clotting factors have been logged in!")
+        setAge("");
+        setGenetics("");
+        setMedicalCondition("");
+        setMedications("");
+        setDiet("");
+        setLatestBloodClot("");
         const scores = calculateImpactScores();
         const data = Object.entries(scores).map(([label, value])=> ({label, value}));
 

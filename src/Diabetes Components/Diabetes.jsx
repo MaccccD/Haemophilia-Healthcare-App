@@ -51,10 +51,22 @@ useEffect(()=>{
     }
 
     const saveInfo = () =>{
-      if(!diabetesType || !glucoseLevel || !!insulinDose || !insulinType || !waterIntake || !carbsIntake || !mood || !phsyicalActivity){
+      if(!diabetesType || !glucoseLevel || !insulinDose || !insulinType || !waterIntake || !carbsIntake || !mood || !phsyicalActivity){
         alert("Please ensure every field is filled in before submitting");
         return;
       }
+
+       alert("Diabetes Data episode Logged!");
+       setDiabetesType("");
+       setCarbsIntake("");
+       setInsulinDose("");
+       setInsulinType("");
+       setMood("");
+       setPhysicalActvity("");
+       setWaterIntake("");
+       setGlucoseLevel("");
+
+
     }
 
   
@@ -86,11 +98,11 @@ useEffect(()=>{
       </select>
       <br/><br/>
       <label className='content'>4. What is your average insulin dose daily ?</label><br/><br/>
-      <input type='range' placeholder='Dosage (units)' min="1" max= "10" value={insulinDose} onChange={(i)=> setInsulinDose(i.target.value)}/>
+      <input type='range' placeholder='Dosage (units)' min="1" max= "10" className='setUp' value={insulinDose} onChange={(i)=> setInsulinDose(i.target.value)}/>
       <p>Average Insulin Dose: {insulinDose}</p>
-      <br/><br/>
+      <br/>
 
-      <label className='content'>5. What is your average  water intake ??</label><br/>
+      <label className='content'>5. What is your average  water intake ??</label><br/><br/>
       <select className='setUp' value={waterIntake} onChange={(w)=> setWaterIntake(w.target.value)}>
         <option value="">Select Option:</option>
         <option value="01 glass a day">1 glass a day</option>
@@ -100,7 +112,7 @@ useEffect(()=>{
       <br/><br/>
 
       <label className='content'>5. What is your carbs intake within your diet ?</label><br/><br/>
-      <input type='range' placeholder='carbs intake' value={carbsIntake} onChange={(c)=> setCarbsIntake(c.target.value)}/>
+      <input type='range' placeholder='carbs intake' className='setUp' value={carbsIntake} onChange={(c)=> setCarbsIntake(c.target.value)}/>
       <br/>
       <p className='content'>Carbs Intake: {carbsIntake}</p>
       <br/><br/>

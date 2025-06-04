@@ -6,8 +6,8 @@ import LoadingScreen from '../Main Components/LoadingScreen';
 
 // retriveing existing details
 const username = JSON.parse(localStorage.getItem("userDetails")) || { fullNames: "Guest" };
-const storedAge = JSON.parseInt(localStorage.getItem("age"), 10);
-const DiabetesType = JSON.parse(localStorage.getItem("DiabetesType"));
+const storedAge = parseInt(localStorage.getItem("age"), 10);
+const DiabetesType = localStorage.getItem("DiabetesType");
 
 
   //mock diabetes pateint record data:
@@ -83,9 +83,12 @@ function DiabetesResults() {
         <div>
           {data.map((patient, index) => (
             <div key={patient.id}>
-              <h3>
-                 {patient.name} - {patient.diabetesType}
+              <h3 className='emphasized-Text'>
+               Patient Name: {patient.name}
               </h3>
+              <h4 className='emphasized-Text'>
+                Diabetes Type: {patient.diabetesType}
+              </h4>
               
               <div className='diabetes-Age'>
                 <p className='content'>

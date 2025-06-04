@@ -10,7 +10,7 @@ function JointPainTracker() {
   const [painSeverity, setPainSeverity] = useState(0);
   const [swelling, setSwelling] = useState(false);
   const [mobility, setMobility] = useState("");
-  const [filledFields, setFilledFields] = useState(true);
+  const [filledFields, setFilledFields] = useState(false);
   const [painData, setPainData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -101,9 +101,17 @@ function JointPainTracker() {
   const handleJointPainTracker = () =>{ // here i'm basically uodating the chart based on the entry data that was oogged by ye user to show them their jont pain trends
     if(!selectedTimeframe  || (selectedTimeframe === "custom" && !customDate) || !jointsAffected || !painSeverity || !swelling || !mobility){
       alert("Please fill out all the various fields first !");
-      setFilledFields(false);
+      setFilledFields(true);
       return;
     };
+    alert("All fields have been logged sucessfully");
+    setSelectedTimeframe("");
+    setCustomDate("");
+    setAffectedJoints("");
+    setPainSeverity("");
+    setSwelling("");
+    setMobility("");
+    
     const jointPainLog = {
     date: getFinalDate(),
     jointsAffected,
