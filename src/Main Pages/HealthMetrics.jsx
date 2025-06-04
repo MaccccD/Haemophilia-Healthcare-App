@@ -56,7 +56,7 @@ function HealthMetrics() {
     
      "Sugar Diabetic": [
       {name: "Diabetes Levels", route: "/Diabetes", image: DiabetesIcon},
-      {name: "Diabetes Medication", route: "/DiabetesResults", image: TestsResultsIcon}  
+      {name: "Diabetes Patient  Rec", route: "/DiabetesResults", image: TestsResultsIcon}  
     ],
     
     "Hypertension" : [

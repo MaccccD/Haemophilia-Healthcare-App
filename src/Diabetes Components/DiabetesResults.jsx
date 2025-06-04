@@ -3,110 +3,136 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import LoadingScreen from '../Main Components/LoadingScreen';
 
+
+// retriveing existing details
+const username = JSON.parse(localStorage.getItem("userDetails")) || { fullNames: "Guest" };
+const storedAge = JSON.parseInt(localStorage.getItem("age"), 10);
+const DiabetesType = JSON.parse(localStorage.getItem("DiabetesType"));
+
+
+  //mock diabetes pateint record data:
+
+  const mockPatientRecords = [
+    {
+      id: "PT001",
+      name: username.fullNames,
+      age: storedAge,
+      diabetesType: DiabetesType,
+      diagnosisDate: "2025-06-04",
+      lastCheckup: "2025-05-31",
+      bloodSugar: {
+        current: 145,
+        target: "80 - 140",
+        status: "Slightly higher"
+      },
+      hba1c: {
+         current: 7.2,
+         target: "<7.0",
+         status: " needs improvement"
+      },
+      medications: ["Metformin 500mg", "Glipizide 5mg"],
+      lastReading: "2024-12-01",
+      notes: "Patient showing good compliance with mediction. Blood sugar levels are improving with diet changes."}
+  ]
+
 function DiabetesResults() {
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const diabetesRecords = "https://api.fda.gov/drug/label.json?search=indications_and_usage:diabetes&limit=5";
+
 
   useEffect(()=>{
-     const fetchData = async () => {
-      try {
-        const response = await axios.get(diabetesRecords);
-        
-        console.log('FDA API Response:', response.data);
-        setData(response.data.results || []);
-        setError(null);
-      } catch (error) {
-        console.error('FDA API Error:', error);
-        setError(error.response?.data?.error?.message || error.message || 'Failed to fetch FDA iabetes related data');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-
-    const timerDelay = setTimeout(()=>{
+    const loadMockDta = () =>{
+     setTimeout(()=>{
+      setData(mockPatientRecords)
       setLoading(false);
-    }, 2500)
+    }, 2000)
 
-
-    return ()=> clearTimeout(timerDelay);
-
+    };
+    loadMockDta();
   }, []);
 
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'excellent':
+        case 'good':
+          return "#22c55e";// green
+        case 'slighlty high':
+          case 'needs improvement':
+            return '#f59e0b';//amber
+            case'high':
+            case 'need attention':
+              return '#ef4444'; //red
+            default:
+              return '#6b7280';
+    }
+  };
 
   if(loading){
-   return <LoadingScreen/>
+    return <LoadingScreen/>
   }
 
-  // Show error state
-  if (error) {
-    return (
-      <div className='diabetesResults-Container'>
-        <h1 className='subheading'>Sugar Diabetes Medication Results</h1>
-        <p className='content' style={{ color: 'red' }}>Error: {error}</p>
-      </div>
-    );
-  }
 
 
 
   return (
-     <div className='diabetesResults-Container'>
-      <h1 className='subheading'>Sugar Diabetes Medication Results</h1>
-      <p className='content'>Top 5 Diabetes Medications from FDA:</p>
-      
-      {data && data.length > 0 ? (
+    <div className='diabetesResults-Container'>
+      <h1 className='subheading'>Sigar Diabetes Patient Records</h1>
+      <p className='content'>Recent patent diabetes monitoring results:</p>
+        {data && data.length > 0 ? (
         <div>
-          {data.map((drug, index) => (
-            <div key={index} className='first-Div'>
+          {data.map((patient, index) => (
+            <div key={patient.id}>
               <h3>
-                {drug.openfda?.brand_name?.[0] || drug.openfda?.generic_name?.[0] || 'Diabetes Medication'}
+                 {patient.name} - {patient.diabetesType}
               </h3>
               
-              <div>
-                {drug.openfda?.manufacturer_name?.[0] && (
-                  <p className='content'>
-                    <strong> Made by:</strong> {drug.openfda.manufacturer_name[0]}
-                  </p>
-                )}
+              <div className='diabetes-Age'>
+                <p className='content'>
+                  <strong> Age:</strong> {patient.age} years old | 
+                  <strong> Diagnosed:</strong> {new Date(patient.diagnosisDate).toLocaleDateString()}
+                </p>
                 
-                {drug.openfda?.route?.[0] && (
-                  <p className='content'>
-                    <strong> How to take:</strong> {drug.openfda.route.slice(0, 2).join(', ')}
-                  </p>
-                )}
+                <p className='content'>
+                  <strong> Current Blood Sugar:</strong> {patient.bloodSugar.current} mg/dL 
+                  <span>
+                    {getStatusColor(patient.bloodSugar.status)}
+                  </span>
+                </p>
                 
-                {drug.active_ingredient && drug.active_ingredient.length > 0 && (
-                  <p className='content'>
-                    <strong> Main ingredient:</strong> {drug.active_ingredient[0]}
-                  </p>
-                )}
+                <p className='content'>
+                  <strong> HbA1c Level:</strong> {patient.hba1c.current}% 
+                  <span>
+                    {getStatusColor(patient.hba1c.status)}
+                  </span>
+                </p>
                 
-                {drug.purpose && (
-                  <div>
-                    <p className='content'>
-                      <strong>What it's for:</strong>
-                    </p>
-                    <p className='emphasized-Text'>
-                      {drug.purpose[0].length > 150 
-                        ? drug.purpose[0].substring(0, 150) + '...' 
-                        : drug.purpose[0]
-                      }
-                    </p>
-                  </div>
-                )}
+                <p className='content'>
+                  <strong> Current Medications:</strong> {patient.medications.join(', ')}
+                </p>
+                
+                <p className='content'>
+                  <strong> Last Checkup:</strong> {new Date(patient.lastCheckup).toLocaleDateString()} | 
+                  <strong> Last Reading:</strong> {new Date(patient.lastReading).toLocaleDateString()}
+                </p>
+                
+                <div>
+                  <p className='content'>
+                    <strong> Doctor's Notes:</strong>
+                  </p>
+                  <p className='emphasizedDiabetes-Text'>
+                    {patient.notes}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       ) : (
-        <p className='content'>No diabetes medications found.</p>
+        <p className='content'>No patient records found.</p>
       )}
     </div>
-  );
+  )
 }
 
 export default DiabetesResults;

@@ -148,6 +148,20 @@
   gap: 20px;
   color: #FFEBD7;
 }
+.diabetes-Age {
+  display: grid;
+   gap: 10px;
+   margin-top: 15px;
+}
+.emphasizedDiabetes-Text {
+  font-style: italic;
+  color: #4a5568;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f7fafc;
+  border-radius: 5px;
+  border-left: 4px solid #bee3f8;
+}
 .bloodPressure-Container{
   display: inline-block;
   flex-direction: column;

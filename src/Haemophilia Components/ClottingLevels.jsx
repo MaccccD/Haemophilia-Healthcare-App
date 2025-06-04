@@ -28,11 +28,14 @@ function ClottingLevels() {
     setPrevPagge(true);
   }
 
+ 
+  
    const svgRef = useRef();
    
      //retriveing the blood clot period from bleeding data:
      useEffect(()=>{
       const storedBleedLogs = JSON.parse(localStorage.getItem("bleedingLogs") || "[]");
+      localStorage.setItem("age", age); //saving the age bc I'm gonna reu-use this value to for other health issues 
       const timerDelay = setTimeout(()=>{
         setLoading(false);
        }, 2000)

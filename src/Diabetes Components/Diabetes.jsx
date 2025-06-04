@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Diabetes() {
@@ -24,6 +24,11 @@ function Diabetes() {
     navigate("/HaemophiliaLabResults");
     setPrevPagge(true);
   }
+  
+//saving the type of diabetes bc i'm gonna re-use it later
+useEffect(()=>{
+  localStorage.setItem("DiabetesType", diabetesType);
+}, [diabetesType])
 
 
     const symptomsOptions = [
