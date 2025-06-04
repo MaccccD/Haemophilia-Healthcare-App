@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Anxiety() {
 
@@ -7,6 +8,21 @@ function Anxiety() {
   const [stressTypes, setStressTypes] = useState([]);
   const [traumas, setTraumas] = useState("");
   const [societalPressure, setSocietalPressure] = useState("");
+  const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/Depression");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/HealthMetriocs");
+    setPrevPagge(true);
+  }
+
 
 
 
@@ -50,6 +66,19 @@ const exmaplesofSocietyPressures = [
   setStressTypes([... stressTypes, stresses])
  }
   }
+  const handleSave = () =>{
+    if(!mood || !anxietyAttacks| !stressTypes || !traumas || !societalPressure){
+      alert("Please fill in all the fields before saving the entry")
+    }
+
+    alert("Anxiety Episode logged in successfully");
+    setMood("");
+    setAnxietyAttacks("");
+    setStressTypes("");
+    setTraumas("");
+    setSocietalPressure("");
+    
+  }
 
 
 
@@ -72,7 +101,7 @@ const exmaplesofSocietyPressures = [
       </select>
       <br/><br/>
 
-      <label className='content'> 2. Types of Anxiety  attacks you usually experience?</label><br/><br/>
+      <label className='content'> 2. Types of anxiety  attacks you usually experience?</label><br/><br/>
       <select value={anxietyAttacks} className='setUp' onChange={(a)=> setAnxietyAttacks(a.target.value)}>
       <option value= "">Select Diet option ...</option>
       {anxietyAttackTypes.map((attack, index) => (
@@ -105,7 +134,7 @@ const exmaplesofSocietyPressures = [
        </div> 
        <br/>
 
-       <label className='content' > 3. Please select the type of trauma you have recently experienced</label><br/><br/>
+       <label className='content' > 4. Please select the type of trauma you have recently experienced:</label><br/><br/>
        <select className='setUp' value={traumas} onChange={(m)=> setTraumas(m.target.value)}>
         <option value= "">Select Option ...</option>
         {exmaplesofTraumas.map((trauma, index)=>{
@@ -114,13 +143,20 @@ const exmaplesofSocietyPressures = [
        </select>
        <br/><br/>
 
-       <label className='content'>4. What form of societal pressure have you experienced the most ? </label><br/><br/>
+       <label className='content'>5. What form of societal pressure have you experienced the most ? </label><br/><br/>
        <select className='setUp' value={societalPressure} onChange={(s)=> setSocietalPressure(s.target.value)}>
         <option value=""> Select Option ...</option>
         {exmaplesofSocietyPressures.map((pressure, index)=>{
           <option key={index} value={pressure}>{pressure}</option>
         })}
        </select>
+        <br/><br/>
+       <button onClick={handleSave} className='nextBtn'> Save Entry</button>
+       <br/><br/>
+
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
 
        
 

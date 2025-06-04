@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { use, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Depression() {
 
@@ -6,6 +7,22 @@ function Depression() {
   const [surroundingsSymptoms, setSurroundingSymptoms] = useState([]);
   const [personalityTraits, setPersonalityTraits] = useState("");
   const [copingMechanism, setCopingMechanism] = useState("");
+  const [supportStructure, setSupportStructure] = useState("");
+   const [nextPage, setNextPage] = useState(false);
+  const [prevPage, setPrevPagge] = useState(false);
+
+  const navigate = useNavigate();
+
+  function NavigateNextPage (){
+   navigate("/MentalHealthResults");
+   setNextPage(true);
+  }
+
+  function GoBack(){
+    navigate("/Anxiety");
+    setPrevPagge(true);
+  }
+
 
   
   
@@ -37,6 +54,15 @@ function Depression() {
   "Praying"
  ]
 
+ const supportSystems = [
+  "Family",
+  "Life Partner",
+  "Therapy",
+  "Friends",
+  "Church community",
+  "Loner"
+ ]
+
 
   const handleFirstCheckbox = (symptoms) =>{
  if(depressionSymptoms.includes(symptoms)){
@@ -55,6 +81,21 @@ function Depression() {
   setSurroundingSymptoms([... surroundingsSymptoms, characteristics])
  }
    }
+
+    const handleSave = () =>{
+    if(!depressionSymptoms || !surroundingsSymptoms| !personalityTraits || !copingMechanism || !supportStructure){
+      alert("Please fill in all the fields before saving the entry")
+    }
+
+    alert("Depression  Episode logged in successfully");
+    setDepressionSymptoms("");
+    setSupportStructure("");
+    setSurroundingSymptoms("");
+    setPersonalityTraits("");
+    setCopingMechanism("");
+    
+  }
+
 
 
 
@@ -132,6 +173,26 @@ function Depression() {
           <option key={index} value={cope}>{cope}</option>
         })}
        </select>
+       <br/><br/>
+
+       <label className='content'> 5. What support structure do you have ?</label><br/><br/>
+       <select className='setUp' value={supportStructure} onChange={(s)=> setSupportStructure(s.target.value)}>
+        <option value="">Select Option...</option>
+        {supportSystems.map((support, index)=>{
+          return(
+            <option key={index} value={support}>{support}</option>
+          )
+        })}
+       </select>
+        <br/><br/>
+       <button onClick={handleSave} className='nextBtn'> Save Entry</button>
+       <br/><br/>
+
+        <button onClick={GoBack} className='prevBtn'>Previous</button>
+
+        <button onClick={NavigateNextPage} className='nextButton'>Next</button>
+
+       
        
     </div>
   )
