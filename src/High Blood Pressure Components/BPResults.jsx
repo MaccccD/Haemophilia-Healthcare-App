@@ -13,6 +13,7 @@ function BPResults() {
   const [latestStressEntry, setLatestStressEntry] = useState(null);
   const [latestWeightEntry, setLatestWeightEntry] = useState(null);
   const [showRiskTable, setShowRiskTable] = useState(false);
+  const [riskAssessment, setRiskAssessment] = useState(null);
   const [loading, setLoading] = useState(true);
   const [nextPage, setNextPage] = useState(false);
   const [prevPage, setPrevPagge] = useState(false);
@@ -59,50 +60,181 @@ function BPResults() {
     return <LoadingScreen/>
   }
 
-  const BloodPressureRiskLevelResults =()=>{
-     let score = 0;
+  const BloodPressureRiskLevelResults = () => {
+    let score = 0;
+    let factors = [];
 
-  // Diet risk
-  const unhealthyDiets = [
-    "High Saturated Fat Intake (e.g. fatty meats, butter)",
-    "High Trans Fat Intake (e.g. fried snacks, baked goods)",
-    "Low Fruit and Vegetable Intake",
-    "High Sugar Intake (e.g. soda, sweets)"
-  ];
-  const healthyDiets = [
-    "Whole Grain Consumption",
-    "Low-Fat Dairy Products",
-    "Lean Protein Intake (e.g. chicken, fish, legumes)",
-    "Reduced Red Meat Consumption",
-    "Limiting Processed Foods",
-    "Drinking Plenty of Water"
-  ];
-  if (unhealthyDiets.includes(latestDietEntry)) score += 2;
-  if (healthyDiets.includes(latestDietEntry)) score -= 1;
+    // Diet risk
+    const unhealthyDiets = [
+      "High Saturated Fat Intake (e.g. fatty meats, butter)",
+      "High Trans Fat Intake (e.g. fried snacks, baked goods)",
+      "Low Fruit and Vegetable Intake",
+      "High Sugar Intake (e.g. soda, sweets)"
+    ];
+    const healthyDiets = [
+      "Whole Grain Consumption",
+      "Low-Fat Dairy Products",
+      "Lean Protein Intake (e.g. chicken, fish, legumes)",
+      "Reduced Red Meat Consumption",
+      "Limiting Processed Foods",
+      "Drinking Plenty of Water"
+    ];
 
-  // Alcohol risk score
-  if (latestAlcoholConsume === "Heavy drinker") score += 2;
-  else if (latestAlcoholConsume === "Occasional Drinker") score += 1;
+    if (unhealthyDiets.includes(latestDietEntry)) {
+      score += 2;
+      factors.push({
+        factor: "Diet",
+        condition: latestDietEntry,
+        score: "+2",
+        status: "Unhealthy"
+      });
+    } else if (healthyDiets.includes(latestDietEntry)) {
+      score -= 1;
+      factors.push({
+        factor: "Diet",
+        condition: latestDietEntry,
+        score: "-1",
+        status: "Healthy"
+      });
+    } else if (latestDietEntry) {
+      factors.push({
+        factor: "Diet",
+        condition: latestDietEntry,
+        score: "0",
+        status: "Neutral"
+      });
+    }
 
-  // Physical Activity risk score
-  if (latestPhysicalAct === "None") score += 1;
-  else score -= 2;
+    // Alcohol risk score
+    if (latestAlcoholConsume === "Heavy drinker") {
+      score += 2;
+      factors.push({
+        factor: "Alcohol",
+        condition: "Heavy drinker",
+        score: "+2",
+        status: "High Risk"
+      });
+    } else if (latestAlcoholConsume === "Occasional Drinker") {
+      score += 1;
+      factors.push({
+        factor: "Alcohol",
+        condition: "Occasional Drinker",
+        score: "+1",
+        status: "Moderate Risk"
+      });
+    } else if (latestAlcoholConsume) {
+      factors.push({
+        factor: "Alcohol",
+        condition: latestAlcoholConsume,
+        score: "0",
+        status: "Low Risk"
+      });
+    }
 
-  // Smoking risk score
-  if (latestSmokerEntry.length > 0 && !latestSmokerEntry.includes("None")) score += 2;
+    // Physical Activity risk score
+    if (latestPhysicalAct === "None") {
+      score += 1;
+      factors.push({
+        factor: "Physical Activity",
+        condition: "None",
+        score: "+1",
+        status: "Sedentary"
+      });
+    } else if (latestPhysicalAct) {
+      score -= 2;
+      factors.push({
+        factor: "Physical Activity",
+        condition: latestPhysicalAct,
+        score: "-2",
+        status: "Active"
+      });
+    }
 
-  // Stress risk score
-  if (parseInt(latestStressEntry) > 60) score += 1;
+    // Smoking risk score
+    if (latestSmokerEntry && latestSmokerEntry.length > 0 && !latestSmokerEntry.includes("None")) {
+      score += 2;
+      factors.push({
+        factor: "Smoking",
+        condition: Array.isArray(latestSmokerEntry) ? latestSmokerEntry.join(', ') : latestSmokerEntry,
+        score: "+2",
+        status: "Smoker"
+      });
+    } else {
+      factors.push({
+        factor: "Smoking",
+        condition: "Non-smoker",
+        score: "0",
+        status: "Non-smoker"
+      });
+    }
 
-  // Weight risk score
-  const weightNum = parseFloat(latestWeightEntry);
-  if (weightNum > 90) score += 2;
-  else if (weightNum > 80) score += 1;
+    // Stress risk score
+    if (latestStressEntry && parseInt(latestStressEntry) > 60) {
+      score += 1;
+      factors.push({
+        factor: "Stress Level",
+        condition: `${latestStressEntry}% (High)`,
+        score: "+1",
+        status: "High Stress"
+      });
+    } else if (latestStressEntry) {
+      factors.push({
+        factor: "Stress Level",
+        condition: `${latestStressEntry}% (Normal)`,
+        score: "0",
+        status: "Normal Stress"
+      });
+    }
 
-  // Final Evaluation
-  if (score <= 1) return "Low Risk"; // green color
-  else if (score <= 4) return "Moderate Risk";//amber ''
-  else return "High Risk"; // red ';
+    // Weight risk score
+    if (latestWeightEntry) {
+      const weightNum = parseFloat(latestWeightEntry);
+      if (weightNum > 90) {
+        score += 2;
+        factors.push({
+          factor: "Weight",
+          condition: `${latestWeightEntry}kg (>90kg)`,
+          score: "+2",
+          status: "High Risk"
+        });
+      } else if (weightNum > 80) {
+        score += 1;
+        factors.push({
+          factor: "Weight",
+          condition: `${latestWeightEntry}kg (80-90kg)`,
+          score: "+1",
+          status: "Moderate Risk"
+        });
+      } else {
+        factors.push({
+          factor: "Weight",
+          condition: `${latestWeightEntry}kg (<80kg)`,
+          score: "0",
+          status: "Normal Weight"
+        });
+      }
+    }
+    // Final Evaluation
+    let riskLevel, riskColor;
+    if (score <= 1) {
+      riskLevel = "Low Risk";
+      riskColor = "green";
+    } else if (score <= 4) {
+      riskLevel = "Moderate Risk";
+      riskColor = "orange";
+    } else {
+      riskLevel = "High Risk";
+      riskColor = "red";
+    }
+
+    const assessment = {
+      totalScore: score,
+      riskLevel,
+      riskColor,
+      factors
+    }
+    setRiskAssessment(assessment);
+    setShowRiskTable(true);
 
   }
 
@@ -111,81 +243,67 @@ function BPResults() {
     <div className='bloodPressureResults-Container'>
       <h1 className='subheading'>High Blood Pressure Risk Scoring System</h1>
       <p className='content'>Here are your blood pressure risk scores based on the data logged in the bigh blood pressure section:</p>
-       <button onClick={BloodPressureRiskLevelResults} className='haemophiliaResults-Btn'>Show Risk System</button>
-       
-      <table className='risk-table'>
-        <thead>
-          <tr>
-            <th className='subheading'>Factor</th>
-            <th className='subheading'>Condition</th>
-            <th className='subheading'>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Diet</td>
-            <td>Unhealthy (e.g. High fat/sugar low, low veggies etc.)</td>
-            <td>+2</td>
-          </tr>
-          <tr>
-          <td>Diet</td>
-          <td>Healthy (e.g. Lean protein water)</td>
-          <td>-1</td>
-          </tr>
-          <tr>
-            <td>Alcohol</td>
-            <td>Heavy drinker</td>
-            <td>+2</td>
-          </tr>
-          <tr>
-            <td>Alcohol</td>
-            <td>Occasional drinker</td>
-            <td>+1</td>
-          </tr>
-           <tr>
-        <td>Physical Activity</td>
-        <td>None</td>
-        <td>+1</td>
-      </tr>
-      <tr>
-        <td>Physical Activity</td>
-        <td>Regular (e.g. walking, gym, yoga)</td>
-        <td>-2</td>
-      </tr>
-      <tr>
-        <td>Smoking</td>
-        <td>Any smoker type</td>
-        <td>+2</td>
-      </tr>
-      <tr>
-        <td>Stress</td>
-        <td>Above 60</td>
-        <td>+1</td>
-      </tr>
-      <tr>
-        <td>Weight</td>
-        <td>Above 90kg</td>
-        <td>+2</td>
-      </tr>
-      <tr>
-        <td>Weight</td>
-        <td>80kg – 90kg</td>
-        <td>+1</td>
-      </tr>
-        </tbody>
-         <tfoot>
-      <tr>
-        <td colSpan="2"><strong>Total Score Meaning:</strong></td>
-        <td>
-          <div>
-            <div><strong>0 – 1:</strong> Low Risk</div>
-            <div><strong>2 – 4:</strong> Moderate Risk</div>
-            <div><strong>5+ :</strong> High Risk</div>
+       <button onClick={BloodPressureRiskLevelResults} className='haemophiliaResults-Btn'>Calculate my risk score</button>
+       <br/><br/>
+
+       {showRiskTable && riskAssessment && (
+        <div>
+          <h2 className='emphasied-Text'>
+            Your Risk Level: {riskAssessment.riskLevel}
+          </h2>
+          <p className='emphasized-Text'>Total Score: {riskAssessment.totalScore}</p>
+          
+          <table className='risk-table'>
+            <thead>
+              <tr>
+                <th className='subheading'>Factor</th>
+                <th className='subheading'>Your Data</th>
+                <th className='subheading'>Score</th>
+                <th className='subheading'>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {riskAssessment.factors.map((factor, index) => (
+                <tr key={index}>
+                  <td>{factor.factor}</td>
+                  <td>{factor.condition}</td>
+                  <td>
+                    {factor.score}
+                  </td>
+                  <td>{factor.status}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan="3"><strong>Total Score:</strong></td>
+                <td style={{color: riskAssessment.riskColor}}>
+                  <strong>{riskAssessment.totalScore}</strong>
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="3"><strong>Risk Level:</strong></td>
+                <td style={{color: riskAssessment.riskColor}}>
+                  <strong>{riskAssessment.riskLevel}</strong>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <div  className= "riskLevelGuide">
+            <h3>Risk Level Guide:</h3>
+            <p><strong className='lowRisk'>Low Risk (0-1):</strong> Your lifestyle factors support healthy blood pressure</p>
+            <p><strong className='moderateRisk'>Moderate Risk (2-4):</strong> Some factors may contribute to elevated blood pressure</p>
+            <p><strong className='highRisk'>High Risk (5+):</strong> Multiple factors may significantly increase blood pressure risk</p>
           </div>
-        </td>
-      </tr>
-    </tfoot>
-      </table>
+        </div>
+      )}
+
+      {storedbloodPressureLogs.length === 0 && (
+        <div className='pressureUnavailable'>
+          <p>No blood pressure data found. Please log your data in the High Blood Pressure section first.</p>
+        </div>
+      )}
 
 
         <br/><br/>

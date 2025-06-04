@@ -22,6 +22,9 @@
    opacity: 100;
    cursor: pointer;
 }
+.prevBtn:hover{
+  background-color: #062d69;
+}
 .nextButton {
    background-color: #103D81;
    color: #FFEBD7;
@@ -32,6 +35,9 @@
    border: none;
    opacity: 100;
    cursor: pointer;
+}
+.nextButton:hover{
+  background-color: #062d69;
 }
 .bleedingData {
   align-items: center;
@@ -177,6 +183,27 @@
   margin-left: 290px;
   gap: 20px;
   color: #FFEBD7;
+}
+.riskLevelGuide {
+  margin-top: 20px;
+  padding: 15px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.lowRisk {
+  color: #00FF00;
+}
+.moderateRisk {
+  color: #F39B0E;
+}
+.high-Risk {
+  color: #fbbf24;
+}
+.pressureUnavailable {
+ margin-top: 20px;
+ padding: 15px;
+ background-color: #f0f0f0;
+ border-radius: 5px;
 }
 .anxiety-Container {
   display: inline-block;

@@ -16,7 +16,7 @@ function HighBloodPressure() {
   const navigate = useNavigate();
 
   function NavigateNextPage (){
-   navigate("/Anxiety");
+   navigate("/BPResults");
    setNextPage(true);
   }
 
