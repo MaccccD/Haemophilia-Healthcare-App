@@ -15,6 +15,11 @@ function Messages() {
 
   const [messageText, setMessageText] = useState("");
   const [messageHolder, setMessageHolder] = useState([]);
+  const [isDialogueOpen, setIsDialogueOpen] = useState(false);
+ 
+
+  const openDialog =  () => setIsDialogueOpen(true);
+  const closeDialog  = () => setIsDialogueOpen(false);
   //get the user's names that t used to create account and login to welcome them. (personal touch):
 const username = JSON.parse(localStorage.getItem("userDetails")) || { fullNames: "Guest" };
 
@@ -34,10 +39,13 @@ const messagesHolder = [
   function ViewTxtMessage(index){ 
     setMessageText(messagesHolder[index].message);
   }
-  function MessagingFunctionality(){
-
+  const DialogBox = ({isOpen, onClose, children}) => {
+    if(!isOpen) return null;
   }
-
+  function MessagingFunctionality(){
+   
+  }
+ 
   return (
     <div className='messages-Container'>
       <div className='messages-Holder'>
@@ -58,7 +66,15 @@ const messagesHolder = [
             alt={msg.sender} className='doctor-Image'/>
            </button>
           )})}
-          <button className='dialogue-Box'> Enter Text Message</button>
+          <button className='dialogue-Box' onClick={openDialog}> Enter Text Message</button>
+          
+          {/* <button className="close-button" onClick={closeDialog}>
+           &times;
+          </button> */}
+          
+          
+
+    
         </div>
       </div>
     </div>

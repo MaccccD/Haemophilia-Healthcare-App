@@ -248,6 +248,25 @@
     padding: 20px;
     text-align: center;
    }
+   .dialogue-Box {
+   display: block;
+   justify-self: center;
+   background-color: #072B62;
+   justify-content: center;
+   margin: 5px;
+   margin-right: 10px;
+   text-align: center;
+   color: #FFEBD7;
+   border-radius: 25px;
+   width: 200px;
+   height: 75px;
+   border: none;
+   z-index: 300;
+   cursor: pointer;
+}
+.dialogue-Box:hover{
+  background-color: #0648ad;
+}
    
 }
 
