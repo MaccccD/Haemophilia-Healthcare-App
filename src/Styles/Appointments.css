@@ -115,7 +115,25 @@
   background: rgba(255, 255, 255, 0.3);
 
 }
-
+.make-Appointment {
+   display: block;
+   justify-self: center;
+   background-color: #072B62;
+   justify-content: center;
+   margin: 5px;
+   margin-top: 40px;
+   text-align: center;
+   color: #FFEBD7;
+   border-radius: 25px;
+   width: 160px;
+   height: 60px;
+   border: none;
+   z-index: 300;
+   cursor: pointer;
+}
+.make-Appointment:hover{
+  background-color: #0648ad;
+}
 .appointment-details {
   backdrop-filter: blur(10px);
   border-radius: 20px;

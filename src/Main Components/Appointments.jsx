@@ -220,6 +220,7 @@ const days = [
           <p className='noappointment-Text'>
             No appointment scheduled for {formatDateDisplay(selectedDate)}
           </p>
+          <button className='make-Appointment'>Make Appointment</button>
         </div>
       )}
     </div>
