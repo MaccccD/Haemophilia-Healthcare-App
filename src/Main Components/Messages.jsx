@@ -14,6 +14,7 @@ import docImage10 from "../Images/doc 10.png";
 function Messages() {
 
   const [messageText, setMessageText] = useState("");
+  const [messageHolder, setMessageHolder] = useState([]);
   //get the user's names that t used to create account and login to welcome them. (personal touch):
 const username = JSON.parse(localStorage.getItem("userDetails")) || { fullNames: "Guest" };
 
@@ -32,6 +33,9 @@ const messagesHolder = [
 
   function ViewTxtMessage(index){ 
     setMessageText(messagesHolder[index].message);
+  }
+  function MessagingFunctionality(){
+
   }
 
   return (
@@ -54,6 +58,7 @@ const messagesHolder = [
             alt={msg.sender} className='doctor-Image'/>
            </button>
           )})}
+          <button className='dialogue-Box'> Enter Text Message</button>
         </div>
       </div>
     </div>
