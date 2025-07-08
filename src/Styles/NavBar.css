@@ -243,4 +243,105 @@ nav {
     display: none;
    }
  }
+  @media screen and (max-width: 1024px) {
+    .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    min-height: auto;
+    margin: 0;
+    padding: 8px 0;
+    border-radius: 20px 20px 0 0;
+    background-color: #380D85;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   } 
+   .logo, .username, .user-profile{
+    display: none;
+   }
+   .logOut {
+    display: flex;
+   }
+   .nav-Links {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #380D85;
+   }
+   .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    min-width: 60px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 1.4px solid #FFEBD7;
+    border-spacing: 20px;
+    margin-left: 2px;
+    transition: all 0.3s ease;
+   }
+   .nav-item.active{
+    color: #EBC801;
+   }
+   .nav-icon {
+    font-size: 24px;
+    margin-right: 20px;
+    margin-bottom: 2px;
+   }
+   .nav-item span {
+    background-color: transparent;
+    flex-grow: 0;
+    font-size: 16px;
+    font-weight: 500;
+   }
+   .notification-badge {
+    position: absolute;
+    top: 40px;
+    right: 240px;
+    background-color: red;
+    color: #FFEBD7;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+   }
+   .appointment-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 240px;
+    background-color: red;
+    color: #FFEBD7;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+   }
+   .sidebar > *:last-child {
+    display: none;
+   }
+ }
 
