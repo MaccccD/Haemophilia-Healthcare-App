@@ -35,6 +35,7 @@ import { useLocation } from "react-router-dom";
 import NavBar from "./Main Components/NavBar";
 import Messages from "./Main Components/Messages";
 import MessagesProvider from "./Context/MessagesProvider";
+import FooterProvider from "./Context/FooterProvider";
 function ProtectedRoute({children}){
   const {authenticate} = useContext(userAuthenticate);
   const location = useLocation();
@@ -49,6 +50,7 @@ function App() {
   return (
     <BrowserRouter>
     <AuthContextProvider>
+      <FooterProvider>
        <Routes>
         <Route path="/" element = {<ProtectedRoute><MessagesProvider><Home/><NavBar/></MessagesProvider></ProtectedRoute>}/>
         <Route path="/HealthMetrics" element = {<ProtectedRoute><HealthMetrics/><NavBar/></ProtectedRoute>}/>
@@ -73,8 +75,11 @@ function App() {
         <Route path="/Appointments" element = {<ProtectedRoute><Appointments/><NavBar/></ProtectedRoute>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
+    </FooterProvider>
     </AuthContextProvider>
+    
     </BrowserRouter>
+    
   );
 }
 
