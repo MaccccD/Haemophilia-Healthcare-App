@@ -8,8 +8,8 @@ function FooterProvider({children}) {
 
 
     const FooterComponent = () =>{
-      console.log('FooterComponent rendered')
-     return <p className='footer'>Brought to you by Dumisani M. Mofolo. (2025)</p>;
+      console.log('FooterComponent rendered');
+     return <p className='footer'>Brought to you by Dumisani M. Mofolo (2025).</p>;
     }
 
     const toggleFooter = () =>{
